@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Info — JavaScript</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="asset/style/Info-JS.css" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="#hero" class="logo">Info <span>JavaScript</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html#hero" class="nav-link">Accueil</a>
+                <a href="index.html#projects" class="nav-link">Projets</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Photo de profil -->
+            <div class="profile-pic-wrap">
+                <a href="asset/image/milann lede CV 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="asset/image/Photo de milann lede.jpeg" alt="Photo de Milann" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero section">
+        <div class="container grid-2">
+            <div class="hero-copy">
+                <h1 class="title">Tout savoir sur <span class="gradient">JavaScript</span></h1>
+                <p class="lead">
+                    Découvrez les bases, les concepts avancés et les fonctionnalités modernes du
+                    <strong>JavaScript</strong>,
+                    le langage qui rend les pages web interactives et dynamiques.
+                </p>
+            </div>
+            <div class="hero-art">
+                <div class="card-3d reveal">
+                    <div class="card-3d__inner">
+                        <div class="dots"></div>
+                        <div class="lines"></div>
+                        <div class="glow"></div>
+                        <p class="titre-heder">Langages Web</p>
+
+                        <!-- Logos HTML / CSS / JS -->
+                        <div class="tech-logos">
+                            <div class="tech-logo-item">
+                                <a href="Info-HTML.html" rel="noopener">
+                                    <img src="asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-CSS.html" rel="noopener">
+                                    <img src="asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-JS.html" rel="noopener">
+                                    <img src="asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Introduction -->
+        <section id="introduction" class="section">
+            <h2 class="section-title">Qu'est-ce que JavaScript ?</h2>
+            <p class="section-subtitle">Le langage de programmation pour le web interactif</p>
+
+            <p><strong>JavaScript</strong> est un langage de programmation de haut niveau, interprété et orienté objet
+                qui permet de créer du contenu web dynamique et interactif. Il est l'un des trois piliers du
+                développement web avec HTML et CSS.</p>
+
+            <br>
+
+            <h3>Structure de base d'un script JavaScript</h3>
+
+            <br>
+
+            <div class="card">
+                <div class="content">
+                    <pre><code>// Commentaire sur une ligne
+/* Commentaire 
+   multi-lignes */
+
+// Déclaration de variable
+let message = "Bonjour le monde!";
+const PI = 3.14159;
+
+// Fonction simple
+function afficherMessage() {
+    console.log(message);
+    alert(message);
+}
+
+// Appel de fonction
+afficherMessage();
+
+// Structure conditionnelle
+if (PI > 3) {
+    console.log("PI est plus grand que 3");
+} else {
+    console.log("PI est plus petit que 3");
+}
+
+// Boucle
+for (let i = 0; i < 5; i++) {
+    console.log("Itération: " + i);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concepts fondamentaux -->
+        <section id="fundamentals" class="section">
+            <h2 class="section-title">Concepts fondamentaux</h2>
+            <p class="section-subtitle">Les bases essentielles pour maîtriser JavaScript</p>
+
+            <div class="projects-grid">
+                <!-- Variables -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Grammar_and_types#variables"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Variables</h3>
+                            <p>let, const, var.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Types -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Grammar_and_types#types"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Types</h3>
+                            <p>Number, String, Boolean, null, undefined.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tableaux -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Tableaux</h3>
+                            <p>Création, méthodes et manipulation de tableaux.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Objets -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_Objects"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Objets</h3>
+                            <p>Création, propriétés, méthodes et manipulation d’objets.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Fonctions -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions" rel="noopener"
+                        class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Fonctions</h3>
+                            <p>Déclarations, expressions, fléchées, paramètres, valeurs de retour, portée.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Structures de contrôle -->
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Structures de contrôle</h3>
+                            <p>if/else, switch, for, while, do/while, break, continue, try/catch.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- DOM Manipulation -->
+        <section id="dom" class="section">
+            <h2 class="section-title">Manipulation du DOM</h2>
+            <p class="section-subtitle">Interagir avec les éléments de la page web</p>
+
+            <p>Le <strong>DOM (Document Object Model)</strong> est une interface de programmation qui représente la
+                structure d'un document HTML/XML et permet à JavaScript de manipuler le contenu, la structure et le
+                style d'une page web.</p>
+
+            <h3>Méthodes DOM essentielles</h3>
+
+            <div class="card">
+                <div class="content">
+                    <ul>
+                        <li><strong>document.getElementById()</strong> : Sélectionne un élément par son ID</li>
+                        <li><strong>document.querySelector()</strong> : Sélectionne le premier élément correspondant au
+                            sélecteur CSS</li>
+                        <li><strong>document.querySelectorAll()</strong> : Sélectionne tous les éléments correspondant
+                            au sélecteur CSS</li>
+                        <li><strong>element.innerHTML</strong> : Lit ou modifie le contenu HTML d'un élément</li>
+                        <li><strong>element.textContent</strong> : Lit ou modifie le contenu texte d'un élément</li>
+                        <li><strong>element.style</strong> : Modifie les styles CSS d'un élément</li>
+                        <li><strong>element.addEventListener()</strong> : Attache un gestionnaire d'événements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- JavaScript Moderne (ES6+) -->
+        <section id="modern-js" class="section">
+            <h2 class="section-title">JavaScript Moderne (ES6+)</h2>
+            <p class="section-subtitle">Les fonctionnalités modernes qui ont révolutionné JavaScript</p>
+
+            <div class="projects-grid">
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Fonctions fléchées</h3>
+                            <p>Syntaxe concise, comportement du mot-clé 'this', utilisation avec les callbacks.</p>
+                            <div class="actions">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Déstructuration</h3>
+                            <p>Extraire des valeurs d'objets et tableaux dans des variables distinctes.</p>
+                            <div class="actions">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Opérateur spread/rest</h3>
+                            <p>... pour étendre des éléments ou collecter des arguments.</p>
+                            <div class="actions">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+                        rel="noopener" class="no-style-link" target="_blank">
+                        <div class="content">
+                            <h3>Promesses et async/await</h3>
+                            <p>Gestion moderne des opérations asynchrones, évitant les callbacks imbriqués.</p>
+                            <div class="actions">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Démonstrations interactives -->
+        <section id="demos" class="section">
+            <h2 class="section-title">Démonstrations interactives</h2>
+            <p class="section-subtitle">Voyez JavaScript en action avec ces exemples pratiques</p>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Exemples de code JavaScript</h3>
+
+                    <div class="js-demo">
+                        <div class="demo-container">
+                            <h4>Manipulation du DOM</h4>
+                            <p id="demo-text">Ce texte va changer quand vous cliquerez sur le bouton.</p>
+                            <button id="change-text-btn" class="demo-btn">Changer le texte</button>
+                        </div>
+
+                        <div class="demo-container">
+                            <h4>Compteur interactif</h4>
+                            <div class="counter-display">
+                                <span id="counter-value">0</span>
+                            </div>
+                            <div class="counter-controls">
+                                <button id="decrement-btn" class="demo-btn">-</button>
+                                <button id="reset-btn" class="demo-btn">Reset</button>
+                                <button id="increment-btn" class="demo-btn">+</button>
+                            </div>
+                        </div>
+
+                        <div class="demo-container">
+                            <h4>Générateur de couleur</h4>
+                            <div id="color-box" class="color-box"></div>
+                            <button id="generate-color-btn" class="demo-btn">Générer une couleur</button>
+                            <p id="color-value">#000000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APIs Web -->
+        <section id="web-apis" class="section">
+            <h2 class="section-title">APIs Web JavaScript</h2>
+            <p class="section-subtitle">Interagir avec le navigateur et les fonctionnalités du web</p>
+
+
+
+            <h3>APIs couramment utilisées</h3>
+            <ul>
+                <li><strong>Fetch API</strong> : Effectuer des requêtes HTTP</li>
+                <li><strong>LocalStorage/SessionStorage</strong> : Stockage de données côté client</li>
+                <li><strong>Geolocation API</strong> : Accéder à la localisation de l'utilisateur</li>
+                <li><strong>Canvas API</strong> : Dessiner et animer des graphiques</li>
+                <li><strong>Web Audio API</strong> : Traitement et contrôle audio</li>
+                <li><strong>Intersection Observer API</strong> : Détecter la visibilité des éléments</li>
+                <li><strong>Web Workers</strong> : Exécuter du code en arrière-plan</li>
+            </ul>
+
+            <br>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Exemple avec Fetch API</h3>
+                    <div class="card">
+                        <div class="content">
+                            <pre><code>// Récupérer des données depuis une API
+fetch('https://api.exemple.com/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur réseau');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Données reçues:', data);
+        // Traiter les données
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+    });
+
+// Version avec async/await
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.exemple.com/data');
+        const data = await response.json();
+        console.log('Données reçues:', data);
+    } catch (error) {
+        console.error('Erreur:', error);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonnes pratiques -->
+        <section id="best-practices" class="section">
+            <h2 class="section-title">Bonnes pratiques JavaScript</h2>
+            <p class="section-subtitle">Codez efficacement et professionnellement</p>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Conseils pour un JavaScript de qualité</h3>
+                    <ul>
+                        <li>Utilisez const et let au lieu de var</li>
+                        <li>Écrivez des fonctions pures quand c'est possible</li>
+                        <li>Utilisez des noms de variables et fonctions significatifs</li>
+                        <li>Évitez les fonctions trop longues (max 20-30 lignes)</li>
+                        <li>Gérez proprement les erreurs avec try/catch</li>
+                        <li>Utilisez les promesses ou async/await pour le code asynchrone</li>
+                        <li>Commentez votre code de manière appropriée</li>
+                        <li>Utilisez un linter (ESLint) et un formateur (Prettier)</li>
+                    </ul>
+
+                    <h3>Performance et optimisation</h3>
+                    <p>Pour des applications JavaScript performantes : évitez les boucles imbriquées coûteuses, utilisez
+                        le debouncing pour les événements fréquents, minimisez les manipulations DOM, et utilisez les
+                        Web Workers pour les tâches intensives.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu burger et les démonstrations -->
+    <script src="asset/JS/Info-JS.js"></script>
+
+</body>
+
+</html>

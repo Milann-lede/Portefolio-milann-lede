@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulaires — HTML</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="asset/style/formulaires-html.css" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="#hero" class="logo">Formulaires <span>HTML</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html#hero" class="nav-link">Accueil</a>
+                <a href="index.html#diplomas" class="nav-link">À propos de moi</a>
+                <a href="index.html#projects" class="nav-link">Projets</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Photo de profil -->
+            <div class="profile-pic-wrap">
+                <a href="asset/image/milann lede CV 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="asset/image/Photo de milann lede.jpeg" alt="Photo de Milann" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero section">
+        <br>
+        <div class="container grid-2">
+            <div class="hero-copy">
+                <h1 class="title">Tout savoir sur les <span class="gradient"> Formulaires HTML </span><br></h1>
+                <p class="lead">
+                    Découvrez les bases, les bonnes pratiques et les fonctionnalités avancées des <strong>Formulaires. </strong>,
+                </p>
+            </div>
+            <div class="hero-art">
+                <div class="card-3d reveal">
+                    <div class="card-3d__inner">
+                        <div class="dots"></div>
+                        <div class="lines"></div>
+                        <div class="glow"></div>
+                        <p class="titre-heder">Langages Web</p>
+
+                        <!-- Logos HTML / CSS / JS -->
+                        <div class="tech-logos">
+                            <div class="tech-logo-item">
+                                <a href="Info-HTML.html" rel="noopener">
+                                    <img src="asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-CSS.html" rel="noopener">
+                                    <img src="asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-JS.html" rel="noopener">
+                                    <img src="asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Introduction -->
+        <section id="introduction" class="section">
+            <h2 class="section-title">Les formulaires HTML</h2>
+            <p>Les <strong>formulaires HTML</strong> sont des éléments essentiels qui permettent aux utilisateurs
+                d'interagir avec votre site web. Ils servent à collecter des données, effectuer des recherches,
+                soumettre des commentaires, et bien plus encore.</p>
+
+            <p>Un formulaire bien conçu améliore l'expérience utilisateur et augmente le taux de conversion. HTML5 a
+                introduit de nouveaux types de champs et attributs qui facilitent la création de formulaires robustes et
+                accessibles.</p>
+
+            <h3>Structure de base d'un formulaire</h3>
+            <div class="card">
+                <div class="content">
+                    <div class="code-example">
+                        <pre><code>&lt;form action="/traitement.php" method="POST"&gt;
+    &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+    &lt;input type="text" id="nom" name="nom"&gt;
+    
+    &lt;label for="email"&gt;Email :&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types de champs -->
+        <section id="champs" class="section">
+            <h2 class="section-title">Types de champs de formulaire</h2>
+            <p class="section-subtitle">Les différents éléments pour collecter des données</p>
+
+            <div class="projects-grid">
+                <div class="card">
+                    <div class="content">
+                        <h3>Champs texte</h3>
+                        <p>Inputs pour texte, email, mot de passe, recherche, URL et numéro de téléphone.</p>
+                        <div class="form-demo">
+                            <input type="text" placeholder="Texte simple">
+                            <input type="email" placeholder="Email" style="margin-top: 10px;">
+                            <input type="password" placeholder="Mot de passe" style="margin-top: 10px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="content">
+                        <h3>Sélections</h3>
+                        <p>Listes déroulantes, cases à cocher et boutons radio pour des choix prédéfinis.</p>
+                        <div class="form-demo">
+                            <select>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                            </select>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox"> Case 1</label>
+                                <label><input type="checkbox"> Case 2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="content">
+                        <h3>Zones de texte</h3>
+                        <p>Textarea pour les messages longs, commentaires ou descriptions détaillées.</p>
+                        <div class="form-demo">
+                            <textarea rows="3" placeholder="Votre message..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="content">
+                        <h3>Champs spéciaux</h3>
+                        <p>Date, heure, couleur, fichier, range et autres types HTML5 avancés.</p>
+                        <div class="form-demo">
+                            <input type="date" style="margin-bottom: 10px;">
+                            <input type="color" style="margin-bottom: 10px;">
+                            <input type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulaire complet -->
+        <section id="formulaire-complet" class="section">
+            <h2 class="section-title">Exemple de formulaire complet</h2>
+            <p class="section-subtitle">Intégrez tous les éléments dans un formulaire cohérent</p>
+
+            <div class="card">
+                <div class="content">
+                    <p>Voici un exemple de formulaire de contact complet utilisant différents types de champs :</p>
+
+                    <div class="contact-form">
+                        <form id="demo-form">
+                            <div class="form-row">
+                                <label for="prenom">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="nom">Nom *</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="sujet">Sujet</label>
+                                <select id="sujet" name="sujet">
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="question">Question</option>
+                                    <option value="support">Support technique</option>
+                                    <option value="partenariat">Partenariat</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <label>Méthode de contact préférée</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="contact-method" value="email"> Email</label>
+                                    <label><input type="radio" name="contact-method" value="telephone">
+                                        Téléphone</label>
+                                    <label><input type="radio" name="contact-method" value="les-deux"> Les deux</label>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label>Centres d'intérêt</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="interests" value="developpement"> Développement
+                                        web</label>
+                                    <label><input type="checkbox" name="interests" value="design"> Design</label>
+                                    <label><input type="checkbox" name="interests" value="marketing"> Marketing
+                                        digital</label>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    <input type="checkbox" required> J'accepte les conditions d'utilisation *
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-buttons">
+                                    <button type="submit" class="btn primary form-btn">Envoyer le message</button>
+                                    <button type="reset" class="btn reset form-btn">Réinitialiser</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonnes pratiques -->
+        <section id="bonnes-pratiques" class="section">
+            <h2 class="section-title">Bonnes pratiques</h2>
+            <p class="section-subtitle">Créez des formulaires efficaces et accessibles</p>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Conseils pour des formulaires optimisés</h3>
+                    <ul>
+                        <li><strong>Utilisez des labels</strong> : Associez toujours un élément
+                            <code>&lt;label&gt;</code> à chaque champ
+                        </li>
+                        <li><strong>Indiquez les champs obligatoires</strong> : Utilisez l'attribut
+                            <code>required</code> et des indicateurs visuels
+                        </li>
+                        <li><strong>Choisissez le bon type d'input</strong> : Utilisez <code>type="email"</code>,
+                            <code>type="tel"</code>, etc.
+                        </li>
+                        <li><strong>Groupez les éléments liés</strong> : Utilisez <code>&lt;fieldset&gt;</code> et
+                            <code>&lt;legend&gt;</code>
+                        </li>
+                        <li><strong>Validez côté client et serveur</strong> : HTML5 offre une validation basique, mais
+                            validez toujours côté serveur</li>
+                        <li><strong>Optimisez pour mobile</strong> : Les formulaires doivent être facilement utilisables
+                            sur mobile</li>
+                    </ul>
+
+                    <h3>Accessibilité</h3>
+                    <p>Pensez à l'accessibilité dès la conception de vos formulaires :</p>
+                    <ul>
+                        <li>Utilisez des labels explicites</li>
+                        <li>Fournissez des messages d'erreur clairs</li>
+                        <li>Assurez une navigation au clavier fluide</li>
+                        <li>Utilisez ARIA attributes si nécessaire</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann </p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu burger et animations -->
+    <script src="asset/JS/formulaires-html.js"></script>
+
+</body>
+
+</html>

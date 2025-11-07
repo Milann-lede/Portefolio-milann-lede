@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Info — HTML</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="asset/style/Info-HTML.css" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="#hero" class="logo">Info <span>HTML</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html#hero" class="nav-link">Accueil</a>
+                <a href="index.html#diplomas" class="nav-link">À propos de moi</a>
+                <a href="index.html#projects" class="nav-link">Projets</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Photo de profil -->
+            <div class="profile-pic-wrap">
+                <a href="/asset/image/milann lede CV 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="asset/image/Photo de milann lede.jpeg" alt="Photo de Milann" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero section">
+        <br>
+        <div class="container grid-2">
+            <div class="hero-copy">
+                <h1 class="title">Tout savoir sur <span class="gradient">HTML</span><br></h1>
+                <p class="lead">
+                    Découvrez les bases, les bonnes pratiques et les fonctionnalités avancées du <strong>HTML</strong>,
+                    le langage fondamental de tout site web.
+                </p>
+            </div>
+            <div class="hero-art">
+                <div class="card-3d reveal">
+                    <div class="card-3d__inner">
+                        <div class="dots"></div>
+                        <div class="lines"></div>
+                        <div class="glow"></div>
+                        <p class="titre-heder">Langages Web</p>
+
+                        <div class="tech-logos">
+                            <div class="tech-logo-item">
+                                <a href="Info-HTML.html" rel="noopener">
+                                    <img src="asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-CSS.html" rel="noopener">
+                                    <img src="asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="Info-JS.html" rel="noopener">
+                                    <img src="asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Introduction -->
+        <section id="introduction" class="section">
+            <h2 class="section-title">Qu'est-ce que le HTML ?</h2>
+            <p class="section-subtitle">Le langage de balisage hypertexte</p>
+
+            <p>Le <strong>HTML (HyperText Markup Language)</strong> est le langage de balisage standard utilisé
+                pour créer des pages web. Il décrit la structure d'une page web et permet d'intégrer du contenu
+                comme du texte, des images, des vidéos et des liens hypertextes.</p>
+
+            <br>
+
+            <h3>Structure de base d'un document HTML</h3>
+
+            <br>
+
+            <div class="card">
+                <div class="content">
+                    <pre><code> <!-- préformaté + Computer Operations Displayed Exactly (code) -->&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Titre de la page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Mon titre principal&lt;/h1&gt;
+    &lt;p&gt;Un paragraphe de texte.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Éléments HTML -->
+        <section id="elements" class="section">
+            <h2 class="section-title">Les éléments HTML essentiels</h2>
+            <p class="section-subtitle">Les balises fondamentales pour structurer votre contenu</p>
+
+            <div class="projects-grid">
+                <div class="card">
+                    <a href="https://www.w3schools.com/html/html_headings.asp" target="_blank" rel="noopener noreferrer"
+                        class="no-style-link">
+                        <div class="content">
+                            <h3>Balises de titre</h3>
+                            <p>Les balises &lt;h1&gt; à &lt;h6&gt; définissent les titres et sous-titres, avec
+                                &lt;h1&gt; étant le plus important.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://www.w3schools.com/html/html_blocks.asp" target="_blank" rel="noopener noreferrer"
+                        class="no-style-link">
+                        <div class="content">
+                            <h3>Paragraphes et texte</h3>
+                            <p>La balise &lt;p&gt; pour les paragraphes, &lt;strong&gt; pour le texte important,
+                                &lt;em&gt; pour le texte en emphase.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://www.w3schools.com/html/html_links.asp" target="_blank" rel="noopener noreferrer"
+                        class="no-style-link">
+                        <div class="content">
+                            <h3>Liens</h3>
+                            <p>&lt;a&gt; pour les liens hypertextes
+                                l'attribut src.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://www.w3schools.com/html/html_images.asp" target="_blank" rel="noopener noreferrer"
+                        class="no-style-link">
+                        <div class="content">
+                            <h3>images</h3>
+                            <p> &lt;img&gt; pour intégrer des images avec l'attribut src.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://www.w3schools.com/html/html_lists.asp" target="_blank" rel="noopener noreferrer"
+                        class="no-style-link">
+                        <div class="content">
+                            <h3>Listes</h3>
+                            <p>&lt;ul&gt; pour les listes non ordonnées, &lt;ol&gt; pour les listes ordonnées,
+                                &lt;li&gt; pour les éléments de liste.</p>
+                            <div class="actions"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- HTML5 Sémantique -->
+        <section id="semantic" class="section">
+            <h2 class="section-title">HTML5 Sémantique</h2>
+            <p class="section-subtitle">Donnez du sens à votre structure</p>
+
+            <p>HTML5 a introduit des balises sémantiques qui décrivent plus précisément le contenu qu'elles
+                entourent, améliorant l'accessibilité et le référencement.</p>
+
+            <h3>Balises sémantiques principales</h3>
+
+            <div class="card">
+                <div class="content">
+
+                    <ul>
+                        <li><strong>&lt;header&gt;</strong> : En-tête de page ou de section</li>
+                        <li><strong>&lt;nav&gt;</strong> : Section de navigation</li>
+                        <li><strong>&lt;main&gt;</strong> : Contenu principal de la page</li>
+                        <li><strong>&lt;article&gt;</strong> : Contenu autonome et indépendant</li>
+                        <li><strong>&lt;section&gt;</strong> : Section thématique de contenu</li>
+                        <li><strong>&lt;aside&gt;</strong> : Contenu complémentaire</li>
+                        <li><strong>&lt;footer&gt;</strong> : Pied de page ou de section</li>
+                    </ul>
+
+                </div>
+            </div>
+            <p>L'utilisation de ces balises aide les moteurs de recherche et les technologies d'assistance à
+                mieux comprendre la structure de votre page.</p>
+        </section>
+
+        <!-- Formulaires HTML -->
+        <section id="forms" class="section">
+            <h2 class="section-title">Formulaires HTML</h2>
+            <p class="section-subtitle">Les formulaires permettent aux utilisateurs d'interagir avec votre site web en
+                soumettant des données. </p>
+
+            <div class="card">
+                <div class="content">
+
+                    <h3>Éléments de formulaire courants</h3>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-row">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" placeholder="Votre nom">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="votre@email.com">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="4" placeholder="Votre message..."></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="country">Pays</label>
+                                <select id="country">
+                                    <option value="">Sélectionnez un pays</option>
+                                    <option value="fr">France</option>
+                                    <option value="be">Belgique</option>
+                                    <option value="ch">Suisse</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    <input type="checkbox"> J'accepte les conditions d'utilisation
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn primary">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formulaire-code" class="section">
+            <div class="card">
+                <div class="content">
+                    <h3>Formulaires HTML</h3>
+                    <p>
+
+                    </p>
+                    <div class="actions">
+                        <a href="formulaires-html.html" class="btn primary">Exemples</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonnes pratiques -->
+        <section id="best-practices" class="section">
+            <h2 class="section-title">Bonnes pratiques HTML</h2>
+            <p class="section-subtitle">Codez efficacement et professionnellement</p>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Conseils pour un HTML de qualité</h3>
+                    <ul>
+                        <li>Utilisez une structure sémantique appropriée</li>
+                        <li>Incluez toujours l'attribut <code>alt</code> pour les images</li>
+                        <li>Organisez votre code avec une indentation cohérente</li>
+                        <li>Validez votre code HTML avec le validateur W3C</li>
+                        <li>Assurez l'accessibilité avec des attributs ARIA si nécessaire</li>
+                        <li>Utilisez des commentaires pour documenter votre code</li>
+                        <li>Séparez le contenu (HTML) de la présentation (CSS) et du comportement (JavaScript)</li>
+                    </ul>
+
+                    <h3>Accessibilité</h3>
+                    <p>L'accessibilité web consiste à créer des sites utilisables par tous, y compris les personnes en
+                        situation de handicap. Utilisez des balises sémantiques, des attributs ARIA, et assurez une
+                        navigation au clavier fonctionnelle.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu burger -->
+    <script src="asset/JS/info-html.js"></script>
+
+
+</body>
+
+</html>
