@@ -1,35 +1,46 @@
-// Animation de révélation des cartes au défilement
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    initCardReveal();
+    initBurgerMenu();
+    initDemoForm();
+});
+
+function initCardReveal() {
     const cards = document.querySelectorAll('.card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    if (!cards.length) {
+        return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        cards.forEach(card => card.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(({ isIntersecting, target }) => {
+            if (!isIntersecting) {
+                return;
             }
+
+            target.classList.add('visible');
+            obs.unobserve(target);
         });
     }, { threshold: 0.1 });
-    
-    cards.forEach(card => {
-        observer.observe(card);
+
+    cards.forEach(card => observer.observe(card));
+}
+
+function initBurgerMenu() {
+    const burger = document.querySelector('#burger');
+    const nav = document.querySelector('#nav');
+
+    burger?.addEventListener('click', () => {
+        nav?.classList.toggle('active');
     });
-    
-    // Gestion du menu burger
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('nav');
-    
-    if (burger && nav) {
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
-    
-    // Gestion du formulaire de démonstration
-    const demoForm = document.getElementById('demo-form');
-    if (demoForm) {
-        demoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Formulaire soumis avec succès! (Cette démo ne transmet pas réellement les données)');
-        });
-    }
-});
+}
+
+function initDemoForm() {
+    document.querySelector('#demo-form')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Formulaire soumis avec succès! (Cette démo ne transmet pas réellement les données)');
+    });
+}

@@ -1,96 +1,105 @@
+const EMAILJS_PUBLIC_KEY = 'MHWfCFxbSaIfZJ-xN';
+const EMAILJS_SERVICE_ID = 'service_jh1yade';
+const EMAILJS_TEMPLATE_ID = 'template_4g6rna6';
 
-
-// ====== Reveal on scroll ======
-const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting){
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-        }
-    })
-}, {threshold: .20, rootMargin: '0px 0px -40px 0px'});
-
-document.querySelectorAll('.card').forEach(el => io.observe(el));
-
-
-// Animation de révélation des cartes au défilement
-document.addEventListener('DOMContentLoaded', function () {
-    const cards = document.querySelectorAll('.card');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    cards.forEach(card => {
-        observer.observe(card);
-    });
-
-    // Gestion du menu burger
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('nav');
-
-    if (burger && nav) {
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
-});
-// Rendre toutes les cartes visibles une fois le DOM chargé (au cas ou IntersectionObserver ne fonctionn pas)
 document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => card.classList.add('visible'));
+    initRevealAnimations();
+    initBurgerMenu();
+    initContactForm();
 });
 
-// ====== EmailJS Configuration ======
-(function() {
-    // Initialisation d'EmailJS avec votre Public Key
-    emailjs.init("MHWfCFxbSaIfZJ-xN"); 
-})();
+function initRevealAnimations() {
+    const cards = document.querySelectorAll('.card');
+    if (!cards.length) {
+        return;
+    }
 
-// ====== Formulaire de contact ======
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
+    if (!('IntersectionObserver' in window)) {
+        cards.forEach(card => card.classList.add('visible'));
+        return;
+    }
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Afficher un message de chargement
-    formStatus.textContent = '⏳ Envoi en cours...';
-    formStatus.style.color = 'var(--muted)';
-    
-    // Récupérer les données du formulaire
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Envoyer l'email via EmailJS
-    emailjs.send("service_jh1yade", "template_4g6rna6", formData)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            formStatus.textContent = '✅ Message envoyé avec succès';
-            formStatus.style.color = '#4ade80';
-            
-            // Réinitialiser le formulaire
-            contactForm.reset();
-            
-            // Masquer le message après 5 secondes
-            setTimeout(() => {
-                formStatus.textContent = '';
-            }, 5000);
-        }, function(error) {
-            console.log('FAILED...', error);
-            formStatus.textContent = 'Erreur lors de l\'envoi. Veuillez réessayer.';
-            formStatus.style.color = '#f87171';
-            
-            // Masquer le message d'erreur après 5 secondes
-            setTimeout(() => {
-                formStatus.textContent = '';
-            }, 5000);
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(({ isIntersecting, target }) => {
+            if (!isIntersecting) {
+                return;
+            }
+
+            target.classList.add('visible');
+            obs.unobserve(target);
         });
-});
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+    cards.forEach(card => observer.observe(card));
+}
+
+function initBurgerMenu() {
+    const burger = document.querySelector('#burger');
+    const nav = document.querySelector('#nav');
+
+    burger?.addEventListener('click', () => {
+        nav?.classList.toggle('active');
+    });
+}
+
+function initContactForm() {
+    const contactForm = document.querySelector('#contact-form');
+    if (!contactForm) {
+        return;
+    }
+
+    if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS is not loaded.');
+        return;
+    }
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    const formStatus = document.querySelector('#form-status');
+    const nameInput = document.querySelector('#name');
+    const emailInput = document.querySelector('#email');
+    const messageInput = document.querySelector('#message');
+
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        updateFormStatus(formStatus, '⏳ Envoi en cours...', 'var(--muted)');
+
+        const formData = {
+            name: nameInput?.value.trim() ?? '',
+            email: emailInput?.value.trim() ?? '',
+            message: messageInput?.value.trim() ?? ''
+        };
+
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData);
+            updateFormStatus(formStatus, '✅ Message envoyé avec succès', '#4ade80');
+            contactForm.reset();
+        } catch (error) {
+            console.error('FAILED...', error);
+            updateFormStatus(formStatus, 'Erreur lors de l\'envoi. Veuillez réessayer.', '#f87171');
+        } finally {
+            scheduleStatusClear(formStatus);
+        }
+    });
+}
+
+function updateFormStatus(element, message, color) {
+    if (!element) {
+        return;
+    }
+
+    element.textContent = message;
+    if (color) {
+        element.style.color = color;
+    }
+}
+
+function scheduleStatusClear(element) {
+    if (!element) {
+        return;
+    }
+
+    setTimeout(() => {
+        element.textContent = '';
+    }, 5000);
+}
