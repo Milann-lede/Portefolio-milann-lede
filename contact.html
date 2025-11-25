@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Portfolio Milann</title>
+ 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="./asset/style/styles.css" />
+
+</head>
+
+<body>
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="index.html#hero" class="logo">Mon<span>Portfolio</span></a>
+ 
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="./a-propos.html" class="nav-link">À propos de moi</a>
+        <a href="./projets.html" class="nav-link">Projets</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+        <a href="index.html#admin" class="nav-link">Admin</a>
+      </nav>
+ 
+      <div class="profile-pic-wrap">
+        <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann.pdf" target="_blank">
+          <img src="/asset/image/Photo de milann lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+        </a>
+      </div>
+ 
+      <button class="burger" id="burger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <section id="hero" class="hero section">
+    <br>
+    <div class="container grid-2">
+      <div class="hero-copy">
+        <h1 class="title">Salut, moi c'est <span class="gradient">Milann</span><br>Développeur Web</h1>
+        <p class="lead">
+          Je crée des sites modernes, esthétiques et performants en <strong>HTML</strong>, <strong>CSS</strong> et
+          <strong>JavaScript</strong>.
+        </p>
+      </div>
+      <div class="hero-art">
+        <div class="card-3d reveal">
+          <div class="card-3d__inner">
+            <div class="dots"></div>
+            <div class="lines"></div>
+            <div class="glow"></div>
+            <p class="titre-heder">Spécialisé en</p>
+
+
+            <div class="tech-logos">
+              <div class="tech-logo-item">
+                <a href="./Info-HTML.html" rel="noopener">
+                  <img src="./asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-CSS.html" rel="noopener">
+                  <img src="./asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-JS.html" rel="noopener">
+                  <img src="./asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Contact -->
+  <section id="contact" class="section contact-section">
+    <div class="container grid-2">
+      <div class="contact-info">
+        <h2 class="section-title">Me <span class="gradient">contacter</span></h2>
+        <p class="section-subtitle">N'hésitez pas à m'envoyer un message ou à me retrouver sur les réseaux.</p>
+        <ul class="coords">
+          <li><strong>Email :</strong> <a href="mailto:Milann.lede@icloud.com">Milann.lede@icloud.com</a></li>
+          <li><strong>Téléphone :</strong> <a href="tel:+330749522451">+33 07 49 52 24 51</a></li>
+          <li><strong>GitHub :</strong> <a href="https://github.com/Milann-lede"
+              target="_blank">github.com/Milann-lede</a></li>
+          <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/milann-lede/"
+              target="_blank">linkedin.com/in/milann-lede</a></li>
+        </ul>
+      </div>
+ 
+      <!-- Formulaire -->
+      <form id="contact-form" class="contact-form">
+        <div class="form-row">
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+ 
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+ 
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+ 
+        <button class="btn primary" type="submit">Envoyer</button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </div>
+  </section>
+ 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 — Portfolio de Milann</p>
+    </div>
+  </footer>
+ 
+  <!-- Script pour le menu burger -->
+  <script src="asset/JS/scrip.js"></script>
+ 
+</body>
+</html>

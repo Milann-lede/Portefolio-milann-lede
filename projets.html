@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets — Portfolio Milann</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./asset/style/styles.css" />
+
+  <style>
+    .search-bar-container {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    #project-search {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      border: 1px solid #ddd;
+      font-family: 'Montserrat', sans-serif;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #project-search:focus {
+      outline: none;
+      border-color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="index.html#hero" class="logo">Mon<span>Portfolio</span></a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="./a-propos.html" class="nav-link">À propos de moi</a>
+        <a href="./projets.html" class="nav-link">Projets</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+        <a href="index.html#admin" class="nav-link">Admin</a>
+      </nav>
+
+      <div class="profile-pic-wrap">
+        <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann.pdf" target="_blank">
+          <img src="/asset/image/Photo de milann lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+        </a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section id="hero" class="hero section">
+    <br>
+    <div class="container grid-2">
+      <div class="hero-copy">
+        <h1 class="title">Salut, moi c'est <span class="gradient">Milann</span><br>Développeur Web</h1>
+        <p class="lead">
+          Je crée des sites modernes, esthétiques et performants en <strong>HTML</strong>, <strong>CSS</strong> et
+          <strong>JavaScript</strong>.
+        </p>
+      </div>
+      <div class="hero-art">
+        <div class="card-3d reveal">
+          <div class="card-3d__inner">
+            <div class="dots"></div>
+            <div class="lines"></div>
+            <div class="glow"></div>
+            <p class="titre-heder">Spécialisé en</p>
+
+
+            <div class="tech-logos">
+              <div class="tech-logo-item">
+                <a href="./Info-HTML.html" rel="noopener">
+                  <img src="./asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-CSS.html" rel="noopener">
+                  <img src="./asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-JS.html" rel="noopener">
+                  <img src="./asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Projets -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Mes <span class="gradient">projets </span></h2>
+      <!-- Barre de recherche -->
+      <div class="search-bar-container">
+        <input type="text" id="project-search" placeholder="Rechercher par titre ou description...">
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Projet 1: ÉDUQTOI -->
+        <article class="card">
+          <img src="asset/image/EDUQTOI.png" alt="ÉDUQTOI" class="thumb" data-img-src="asset/image/EDUQTOI.png">
+          <div class="content">
+            <h3 class="project-title">ÉDUQTOI</h3>
+            <p class="project-description">Site éducatif pour aider les nouveaux lycéens dans le lycée Arthur Rimbaud.</p>
+          </div>
+          <div class="actions">
+            <button class="btn more-info-btn" data-link="https://eduqtoi.netlify.app/">En savoir plus</button>
+          </div>
+        </article>
+
+        <!-- Projet 2: Portfolio Tristan Lédé -->
+        <article class="card">
+          <img src="asset/image/Portfolio-Tristan.png" alt="Portfolio Tristan Lédé" class="thumb" data-img-src="asset/image/Portfolio-Tristan.png">
+          <div class="content">
+            <h3 class="project-title">Portfolio Tristan Lédé</h3>
+            <p class="project-description">un vrai portfolio pour présenter mes compétences et mes projets.</p>
+          </div>
+          <div class="actions">
+            <button class="btn more-info-btn" data-link="https://tristan-lede.netlify.app/">En savoir plus</button>
+          </div>
+        </article>
+
+        <!-- Projet 3: Projet a deux École -->
+        <article class="card">
+          <img src="asset/image/Projet-ecole.png" alt="Projet a deux École" class="thumb" data-img-src="asset/image/Projet-ecole.png">
+          <div class="content">
+            <h3 class="project-title">Projet a deux École</h3>
+            <p class="project-description">un projet a deux réaliser pour un devoir.</p>
+          </div>
+          <div class="actions">
+            <button class="btn more-info-btn" data-link="https://les-jardins-de-marie.netlify.app/">En savoir plus</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- La Modale (Popup) -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-title"></h3>
+      <img id="modal-image" src="" alt="Image du projet" style="width:100%; max-width:400px; margin: 15px auto; display:block;">
+      <p id="modal-description"></p>
+      <a id="modal-link" href="#" target="_blank" rel="noopener" class="btn primary">Visiter le site</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 — Portfolio de Milann</p>
+    </div>
+  </footer>
+
+  <!-- Script pour le menu burger -->
+  <script src="asset/JS/scrip.js"></script>
+
+  <!-- Script pour la modale des projets -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('project-modal');
+      const closeButton = document.querySelector('.close-button');
+      const projectCards = document.querySelectorAll('.card');
+
+      projectCards.forEach(card => {
+        card.style.cursor = 'pointer'; // Change le curseur pour indiquer que la carte est cliquable
+        card.addEventListener('click', function () {
+          const title = this.querySelector('.project-title').innerText;
+          const description = this.querySelector('.project-description').innerText;
+          const imageSrc = this.querySelector('.thumb').dataset.imgSrc;
+          const link = this.querySelector('.more-info-btn').dataset.link;
+
+          document.getElementById('modal-title').innerText = title;
+          document.getElementById('modal-description').innerText = description;
+          const modalImage = document.getElementById('modal-image');
+          modalImage.src = imageSrc;
+          modalImage.alt = "Image du projet " + title;
+          const modalLink = document.getElementById('modal-link');
+          modalLink.href = link;
+
+          modal.style.display = 'block';
+        });
+      });
+
+      // Fermer la modale en cliquant sur la croix
+      closeButton.addEventListener('click', function () {
+        modal.style.display = 'none';
+      });
+
+      // Fermer la modale en cliquant en dehors de son contenu
+      window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      // Fonctionnalité de la barre de recherche
+      const searchInput = document.getElementById('project-search');
+      searchInput.addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+
+        projectCards.forEach(card => {
+          const title = card.querySelector('.project-title').innerText.toLowerCase();
+          const description = card.querySelector('.project-description').innerText.toLowerCase();
+
+          if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            card.style.display = ''; // Affiche la carte si elle correspond
+          } else {
+            card.style.display = 'none'; // Masque la carte sinon
+          }
+        });
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de moi - Milann Lede</title>
+    <link rel="stylesheet" href="./asset/style/styles.css">
+    <!-- Le chemin vers le CSS a été corrigé et les styles sont maintenant dans styles.css -->
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo">Mon<span>Portfolio</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="./index.html" class="nav-link">Accueil</a>
+                <a href="./a-propos.html" class="nav-link">À propos de moi</a>
+                <a href="index.html#projects" class="nav-link">Projets</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Photo de profile -->
+            <div class="profile-pic-wrap">
+                <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="./asset/image/Photo de milann lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+      <section id="hero" class="hero section">
+    <br>
+    <div class="container grid-2">
+      <div class="hero-copy">
+        <h1 class="title">Salut, moi c'est <span class="gradient">Milann</span><br>Développeur Web</h1>
+        <p class="lead">
+          Je crée des sites modernes, esthétiques et performants en <strong>HTML</strong>, <strong>CSS</strong> et
+          <strong>JavaScript</strong>.
+        </p>
+      </div>
+      <div class="hero-art">
+        <div class="card-3d reveal">
+          <div class="card-3d__inner">
+            <div class="dots"></div>
+            <div class="lines"></div>
+            <div class="glow"></div>
+            <p class="titre-heder">Spécialisé en</p>
+
+
+            <div class="tech-logos">
+              <div class="tech-logo-item">
+                <a href="./Info-HTML.html" rel="noopener">
+                  <img src="./asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-CSS.html" rel="noopener">
+                  <img src="./asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                </a>
+              </div>
+              <div class="tech-logo-item">
+                <a href="./../Info-JS.html" rel="noopener">
+                  <img src="./asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <main>
+        <section class="section about-section">
+            <div class="container">
+                <h1 class="section-title gradient">À propos de moi</h1>
+                <p class="section-subtitle">Mon parcours, mes compétences et ce qui me passionne.</p>
+
+                <div class="timeline">
+                    <!-- Item 1: Qui je suis -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon">👤</div>
+                        <div class="timeline-content card">
+                            <h3>Qui je suis</h3>
+                            <p>Je suis un développeur web passionné avec une soif insatiable d'apprendre et de créer. J'aime transformer des idées complexes en applications web élégantes, intuitives et performantes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Mon Parcours -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🎓</div>
+                        <div class="timeline-content card">
+                            <h3>Mon Parcours</h3>
+                            <div class="parcours-item">
+                                <h4>Formation en Développement Web</h4>
+                                <span class="date">2022 - 2023</span>
+                                <p>Description de votre formation. Mentionnez l'école, les technologies principales apprises (HTML, CSS, JavaScript, etc.).</p>
+                            </div>
+                            <div class="parcours-item">
+                                <h4>Première Expérience / Stage</h4>
+                                <span class="date">2023 - Présent</span>
+                                <p>Décrivez ici votre premier rôle, vos responsabilités, et ce que vous avez appris.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Mes compétences -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon">💻</div>
+                        <div class="timeline-content card">
+                            <h3>Mes compétences</h3>
+                            <div class="competences-grid">
+                                <div class="competence-tag">HTML5</div>
+                                <div class="competence-tag">CSS3 & SASS</div>
+                                <div class="competence-tag">JavaScript (ES6+)</div>
+                                <div class="competence-tag">React</div>
+                                <div class="competence-tag">Node.js</div>
+                                <div class="competence-tag">Git & GitHub</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Mes hobbies -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon">❤️</div>
+                        <div class="timeline-content card">
+                            <h3>Mes hobbies</h3>
+                            <p>En dehors du code, je suis passionné par [votre hobby 1], [votre hobby 2] et [votre hobby 3]. Ces activités m'aident à rester créatif et à garder un équilibre sain.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: CV -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon">📄</div>
+                        <div class="timeline-content card">
+                            <h3>Mon CV</h3>
+                            <p>Pour un aperçu complet de mon parcours, n'hésitez pas à télécharger mon CV.</p>
+                            <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann_Lede.pdf" class="btn primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                Télécharger mon CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann</p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu burger -->
+    <script src="./asset/js/scrip.js"></script>
+
+</body>
+</html>
