@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de moi - Milann Lede</title>
+    <link rel="stylesheet" href="asset/style/styles.css">
+    <!-- Assurez-vous que le chemin vers votre fichier CSS est correct -->
+    <style>
+        /* Styles additionnels spécifiques à la page "À propos" */
+        .parcours-item, .hobbies-item {
+            background: var(--card);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .parcours-item:hover, .hobbies-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .parcours-item h3, .hobbies-item h3 {
+            margin-top: 0;
+            color: var(--text);
+        }
+
+        .parcours-item .date {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .competences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .competence {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .competence i { /* Style pour les icônes si vous en utilisez */
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-start);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo">Milann<span>.dev</span></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="a-propos.html" class="nav-link">À propos</a>
+                <a href="index.html#projets" class="nav-link">Projets</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="burger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title gradient">À propos de moi</h1>
+                
+                <!-- Qui je suis -->
+                <div id="qui-suis-je" class="card-content">
+                    <h2 class="section-subtitle">Qui je suis</h2>
+                    <p>Je suis un développeur web passionné avec une soif insatiable d'apprendre et de créer. Spécialisé dans le développement front-end, j'aime transformer des idées complexes en applications web élégantes, intuitives et performantes. Mon objectif est de construire des expériences utilisateur mémorables en alliant un code propre à un design soigné.</p>
+                </div>
+
+                <!-- Mon Parcours -->
+                <div id="parcours" style="margin-top: 3rem;">
+                    <h2 class="section-subtitle">Mon Parcours</h2>
+                    <div class="parcours-item">
+                        <h3>Formation en Développement Web</h3>
+                        <span class="date">2022 - 2023</span>
+                        <p>Description de votre formation. Mentionnez l'école, les technologies principales apprises (HTML, CSS, JavaScript, React, Node.js, etc.) et les projets marquants.</p>
+                    </div>
+                    <div class="parcours-item">
+                        <h3>Première Expérience Professionnelle / Stage</h3>
+                        <span class="date">2023 - Présent</span>
+                        <p>Décrivez ici votre premier rôle, vos responsabilités, les défis que vous avez relevés et ce que vous avez appris. Mettez en avant une réalisation concrète si possible.</p>
+                    </div>
+                </div>
+
+                <!-- Mes compétences -->
+                <div id="competences" style="margin-top: 3rem;">
+                    <h2 class="section-subtitle">Mes compétences</h2>
+                    <div class="competences-grid">
+                        <div class="competence">
+                            <p>HTML5</p>
+                        </div>
+                        <div class="competence">
+                            <p>CSS3 & SASS</p>
+                        </div>
+                        <div class="competence">
+                            <p>JavaScript (ES6+)</p>
+                        </div>
+                        <div class="competence">
+                            <p>React</p>
+                        </div>
+                        <div class="competence">
+                            <p>Node.js</p>
+                        </div>
+                        <div class="competence">
+                            <p>Git & GitHub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mes hobbies -->
+                <div id="hobbies" style="margin-top: 3rem;">
+                    <h2 class="section-subtitle">Mes hobbies</h2>
+                    <div class="hobbies-item">
+                        <p>En dehors du code, je suis passionné par [votre hobby 1, ex: la photographie de paysages], [votre hobby 2, ex: les jeux de stratégie] et [votre hobby 3, ex: la randonnée en montagne]. Ces activités m'aident à rester créatif, à résoudre des problèmes sous un autre angle et à garder un équilibre sain entre ma vie professionnelle et personnelle.</p>
+                    </div>
+                </div>
+
+                <!-- CV (PDF) -->
+                <div id="cv" style="margin-top: 3rem; text-align: center;">
+                    <h2 class="section-subtitle">Mon CV</h2>
+                    <p>Pour un aperçu complet de mon parcours et de mes compétences, n'hésitez pas à télécharger mon CV.</p>
+                    <a href="asset/pdf/CV_Milann_Lede.pdf" download class="btn primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                        Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Milann Lede. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
