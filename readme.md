@@ -18,6 +18,7 @@ Bienvenue sur le dépôt de mon **Portfolio Personnel**. Ce projet est une vitri
 ### 🛠️ Panel Administrateur (Nouveau !)
 Gérez le contenu du site sans toucher une ligne de code grâce au nouveau Dashboard sécurisé.
 *   **Ajout de Projets** : Formulaire complet pour ajouter de nouvelles réalisations.
+*   **Nouvelle Catégorie "IA" 🤖** : Créez et filtrez spécifiquement les projets liés à l'Intelligence Artificielle.
 *   **Mode "Projet Phare" ⭐** : Sélectionnez les projets à afficher dans le carousel de l'accueil.
 *   **Système d'Archives** : Supprimez (archivez) des projets et restaurez-les si besoin (Soft Delete).
 *   **Persistance** : Toutes les données sont sauvegardées localement dans votre navigateur (`localStorage`).
