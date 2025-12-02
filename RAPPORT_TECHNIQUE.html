@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Technique - Portfolio Milann</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 20px;
+        }
+
+        ul {
+            background: #f9f9f9;
+            padding: 20px 40px;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #c0392b;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+
+            ul {
+                border-left: 2px solid #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Rapport Technique : Évolution du Portfolio</h1>
+    <p><strong>Date :</strong> 2 Décembre 2025</p>
+    <p><strong>Objet :</strong> Résumé des fonctionnalités implémentées (Panel Admin, Archives, Projets Phares).</p>
+
+    <h2>1. Création de la Page Contact</h2>
+    <p><strong>Objectif :</strong> Centraliser les informations de contact sur une page dédiée.</p>
+    <ul>
+        <li>Création du fichier <code>contact.html</code> respectant la charte graphique.</li>
+        <li>Intégration du formulaire fonctionnel avec <strong>EmailJS</strong>.</li>
+        <li>Mise à jour de la navigation sur toutes les pages pour pointer vers cette nouvelle page.</li>
+    </ul>
+
+    <h2>2. Panel Administrateur</h2>
+    <p><strong>Objectif :</strong> Permettre la gestion autonome du contenu sans modifier le code.</p>
+    <ul>
+        <li>Création de l'interface sécurisée dans le dossier <code>admin/</code>.</li>
+        <li><strong>Authentification :</strong> Système de login simple (User: <em>Milan</em> / Pass: <em>1234</em>).
+        </li>
+        <li><strong>Dashboard :</strong> Interface pour ajouter, supprimer et visualiser les projets.</li>
+        <li><strong>Persistance :</strong> Utilisation du <code>localStorage</code> du navigateur pour sauvegarder les
+            données sans base de données serveur.</li>
+    </ul>
+
+    <h2>3. Système d'Archives et Restauration</h2>
+    <p><strong>Objectif :</strong> Sécuriser la suppression des projets.</p>
+    <ul>
+        <li><strong>Soft Delete :</strong> La suppression envoie le projet dans une "Corbeille" (Archives) au lieu de le
+            détruire.</li>
+        <li><strong>Restauration :</strong> Possibilité de restaurer un projet archivé depuis le Dashboard.</li>
+        <li><strong>Sécurité :</strong> Ajout d'un bouton "Restaurer les projets par défaut" pour récupérer les projets
+            initiaux (Jardins de Marie, etc.) en cas de perte.</li>
+    </ul>
+
+    <h2>4. Projets Phares (Carousel Dynamique)</h2>
+    <p><strong>Objectif :</strong> Contrôler les projets mis en avant sur la page d'accueil.</p>
+    <ul>
+        <li>Ajout d'une option <strong>"Mettre en avant"</strong> (Projet Phare) lors de la création d'un projet.</li>
+        <li>Ajout d'un bouton (étoile) dans le Dashboard pour basculer le statut d'un projet existant.</li>
+        <li><strong>Dynamisme :</strong> Le carousel de la page d'accueil (<code>index.html</code>) se met à jour
+            automatiquement pour n'afficher que les projets marqués comme favoris.</li>
+    </ul>
+
+    <h2>5. Ajustements d'Interface (UI)</h2>
+    <ul>
+        <li><strong>Footer :</strong> Déplacement du lien "Admin" tout à droite pour plus de discrétion.</li>
+        <li><strong>Accueil :</strong> Suppression du formulaire de contact (redondant) et alignement des informations
+            de contact à gauche.</li>
+    </ul>
+
+    <div class="footer">
+        <p>Généré par votre Assistant IA - Google DeepMind</p>
+    </div>
+
+</body>
+
+</html>

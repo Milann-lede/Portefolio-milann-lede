@@ -103,6 +103,33 @@ function scheduleStatusClear(element) {
 }
 
 function initCarousel() {
+    // 1. Render Slides from LocalStorage
+    const slidesContainer = document.querySelector('.carousel-slides');
+    if (slidesContainer) {
+        const storedProjects = localStorage.getItem('projects');
+        if (storedProjects) {
+            const projects = JSON.parse(storedProjects);
+            // Filter featured and not archived
+            const featuredProjects = projects.filter(p => p.featured && !p.archived);
+
+            if (featuredProjects.length > 0) {
+                slidesContainer.innerHTML = featuredProjects.map(p => `
+                    <div class="carousel-slide">
+                        <img src="${p.image}" alt="${p.title}" class="slide-image">
+                        <div class="slide-content">
+                            <h3>${p.title}</h3>
+                            <p>${p.shortDesc || p.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                // Optional: Show message if no featured projects
+                slidesContainer.innerHTML = '<div class="carousel-slide"><div class="slide-content"><h3>Aucun projet phare</h3><p>Sélectionnez des projets phares dans l\'admin.</p></div></div>';
+            }
+        }
+    }
+
+    // 2. Initialize Carousel Logic (Existing)
     const slides = document.querySelector('.carousel-slides');
     const slideItems = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.prev-btn');
@@ -112,6 +139,9 @@ function initCarousel() {
     if (!slides || slideItems.length === 0) {
         return;
     }
+
+    // Clear existing indicators
+    if (indicatorsContainer) indicatorsContainer.innerHTML = '';
 
     let currentIndex = 0;
     const totalSlides = slideItems.length;

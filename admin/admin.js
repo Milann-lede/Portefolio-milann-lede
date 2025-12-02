@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     tools: "N/A",
                     stack: "N/A",
                     duration: "N/A",
-                    archived: false
+                    archived: false,
+                    featured: document.getElementById('featured').checked // New field
                 };
 
                 // Get existing projects
@@ -108,10 +109,15 @@ function renderAdminProjects() {
         activeList.innerHTML = activeProjects.map(p => `
             <div class="admin-project-item">
                 <div class="admin-project-info">
-                    <h4>${p.title}</h4>
+                    <h4>${p.title} ${p.featured ? '⭐' : ''}</h4>
                     <p>${p.category}</p>
                 </div>
-                <button class="btn delete" onclick="archiveProject(${p.id})">Supprimer (Archiver)</button>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn small" style="background: ${p.featured ? '#fbbf24' : '#4b5563'}; color: ${p.featured ? 'black' : 'white'};" onclick="toggleFeatured(${p.id})">
+                        ${p.featured ? 'Retirer Phare' : 'Mettre Phare'}
+                    </button>
+                    <button class="btn delete" onclick="archiveProject(${p.id})">Supprimer</button>
+                </div>
             </div>
         `).join('');
     }
@@ -137,6 +143,17 @@ function renderAdminProjects() {
 }
 
 // --- ACTIONS ---
+
+// Toggle Featured
+window.toggleFeatured = function (id) {
+    let projects = getProjectsFromStorage();
+    const project = projects.find(p => p.id === id);
+    if (project) {
+        project.featured = !project.featured;
+        saveProjectsToStorage(projects);
+        renderAdminProjects();
+    }
+};
 
 // Soft Delete (Archive)
 window.archiveProject = function (id) {
@@ -191,7 +208,8 @@ window.resetToDefaults = function () {
                 description: "Site éducatif conçu pour aider les nouveaux lycéens à s'orienter et à découvrir les spécialités du lycée. L'objectif était de créer une interface intuitive et attrayante pour un public jeune.",
                 link: "https://eduqtoi.netlify.app/",
                 shortDesc: "Site éducatif pour aider les nouveaux lycéens.",
-                archived: false
+                archived: false,
+                featured: true
             },
             {
                 id: 2,
@@ -206,7 +224,8 @@ window.resetToDefaults = function () {
                 description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
                 link: "https://tristan-lede.netlify.app/",
                 shortDesc: "Un vrai portfolio pour présenter mes compétences.",
-                archived: false
+                archived: false,
+                featured: true
             },
             {
                 id: 3,
@@ -221,7 +240,8 @@ window.resetToDefaults = function () {
                 description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
                 link: "https://les-jardins-de-marie.netlify.app/",
                 shortDesc: "Un projet réalisé en binôme pour un devoir.",
-                archived: false
+                archived: false,
+                featured: true
             }
         ];
 

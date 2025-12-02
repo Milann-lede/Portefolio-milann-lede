@@ -13,7 +13,8 @@ const defaultProjects = [
         duration: "sur 2 ans",
         description: "Site éducatif conçu pour aider les nouveaux lycéens à s'orienter et à découvrir les spécialités du lycée. L'objectif était de créer une interface intuitive et attrayante pour un public jeune.",
         link: "https://eduqtoi.netlify.app/",
-        shortDesc: "Site éducatif pour aider les nouveaux lycéens."
+        shortDesc: "Site éducatif pour aider les nouveaux lycéens.",
+        featured: true
     },
     {
         id: 2,
@@ -27,7 +28,8 @@ const defaultProjects = [
         duration: "3 semaines",
         description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
         link: "https://tristan-lede.netlify.app/",
-        shortDesc: "Un vrai portfolio pour présenter mes compétences."
+        shortDesc: "Un vrai portfolio pour présenter mes compétences.",
+        featured: true
     },
     {
         id: 3,
@@ -41,7 +43,8 @@ const defaultProjects = [
         duration: "1 semaine",
         description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
         link: "https://les-jardins-de-marie.netlify.app/",
-        shortDesc: "Un projet réalisé en binôme pour un devoir."
+        shortDesc: "Un projet réalisé en binôme pour un devoir.",
+        featured: true
     }
 ];
 
