@@ -26,7 +26,7 @@
                 <a href="./index.html" class="nav-link">Accueil</a>
                 <a href="./a-propos.html" class="nav-link">À propos de moi</a>
                 <a href="./projets.html" class="nav-link active">Projets</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
             </nav>
 
             <!-- Photo de profile -->
@@ -41,6 +41,49 @@
             </button>
         </div>
     </header>
+
+    <section id="hero" class="hero section">
+        <br>
+        <div class="container grid-2">
+            <div class="hero-copy">
+                <h1 class="title">Salut, moi c'est <span class="gradient">Milann</span><br>Développeur Web</h1>
+                <p class="lead">
+                    Je crée des sites modernes, esthétiques et performants en <strong>HTML</strong>,
+                    <strong>CSS</strong> et
+                    <strong>JavaScript</strong>.
+                </p>
+            </div>
+            <div class="hero-art">
+                <div class="card-3d reveal">
+                    <div class="card-3d__inner">
+                        <div class="dots"></div>
+                        <div class="lines"></div>
+                        <div class="glow"></div>
+                        <p class="titre-heder">Spécialisé en</p>
+
+
+                        <div class="tech-logos">
+                            <div class="tech-logo-item">
+                                <a href="./information/info-html.html" rel="noopener">
+                                    <img src="./asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="./information/info-css.html" rel="noopener">
+                                    <img src="./asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="./information/info-js.html" rel="noopener">
+                                    <img src="./asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <main>
         <section class="section projects-section">
@@ -58,42 +101,7 @@
                 <!-- Grille de projets -->
                 <div class="projects-grid-page">
 
-                    <!-- Projet 1 -->
-                    <article class="project-card" data-category="scolaire" data-id="1">
-                        <div class="card-image-wrapper">
-                            <img src="./asset/image/eduqtoi.png" alt="ÉDUQTOI" class="project-img">
-                        </div>
-                        <div class="card-content">
-                            <h3>ÉDUQTOI</h3>
-                            <p>Site éducatif pour aider les nouveaux lycéens.</p>
-                            <button class="btn primary small open-modal">Voir plus</button>
-                        </div>
-                    </article>
 
-                    <!-- Projet 2 -->
-                    <article class="project-card" data-category="perso" data-id="2">
-                        <div class="card-image-wrapper">
-                            <img src="./asset/image/portfolio-tristan.png" alt="Portfolio Tristan Lédé"
-                                class="project-img">
-                        </div>
-                        <div class="card-content">
-                            <h3>Portfolio Tristan Lédé</h3>
-                            <p>Un vrai portfolio pour présenter mes compétences.</p>
-                            <button class="btn primary small open-modal">Voir plus</button>
-                        </div>
-                    </article>
-
-                    <!-- Projet 3 -->
-                    <article class="project-card" data-category="scolaire" data-id="3">
-                        <div class="card-image-wrapper">
-                            <img src="./asset/image/projet-ecole.png" alt="Projet École" class="project-img">
-                        </div>
-                        <div class="card-content">
-                            <h3>Projet à deux École</h3>
-                            <p>Un projet réalisé en binôme pour un devoir.</p>
-                            <button class="btn primary small open-modal">Voir plus</button>
-                        </div>
-                    </article>
 
                 </div>
             </div>
@@ -112,8 +120,10 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>© 2025 — Portfolio de Milann</p>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <p style="margin: 0;">© 2025 — Portfolio de Milann</p>
+            <a href="./admin/login.html"
+                style="color: rgba(255,255,255,0.1); text-decoration: none; font-size: 0.8rem;">Admin</a>
         </div>
     </footer>
 

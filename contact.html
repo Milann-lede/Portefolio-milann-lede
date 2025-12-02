@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Milann</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <link rel="stylesheet" href="./asset/style/styles.css" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="./index.html" class="logo">Mon<span>Portfolio</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="./index.html" class="nav-link">Accueil</a>
+                <a href="./a-propos.html" class="nav-link">À propos de moi</a>
+                <a href="./projets.html" class="nav-link">Projets</a>
+                <a href="./contact.html" class="nav-link active">Contact</a>
+            </nav>
+
+            <!-- Photo de profile -->
+            <div class="profile-pic-wrap">
+                <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="/asset/image/Photo de milann lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero section">
+        <br>
+        <div class="container grid-2">
+            <div class="hero-copy">
+                <h1 class="title">Salut, moi c'est <span class="gradient">Milann</span><br>Développeur Web</h1>
+                <p class="lead">
+                    Je crée des sites modernes, esthétiques et performants en <strong>HTML</strong>,
+                    <strong>CSS</strong> et
+                    <strong>JavaScript</strong>.
+                </p>
+            </div>
+            <div class="hero-art">
+                <div class="card-3d reveal">
+                    <div class="card-3d__inner">
+                        <div class="dots"></div>
+                        <div class="lines"></div>
+                        <div class="glow"></div>
+                        <p class="titre-heder">Spécialisé en</p>
+
+
+                        <div class="tech-logos">
+                            <div class="tech-logo-item">
+                                <a href="./information/info-html.html" rel="noopener">
+                                    <img src="./asset/image/html-logo-2.webp" alt="Logo HTML" class="logo-tech-html">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="./information/info-css.html" rel="noopener">
+                                    <img src="./asset/image/css-logo.png" alt="Logo CSS" class="logo-tech">
+                                </a>
+                            </div>
+                            <div class="tech-logo-item">
+                                <a href="./information/info-js.html" rel="noopener">
+                                    <img src="./asset/image/js-logo-2.webp" alt="Logo JavaScript" class="logo-tech">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Contact -->
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Me <span class="gradient">contacter</span></h1>
+            <p class="lead">Vous avez un projet ? Discutons-en !</p>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Grid -->
+    <section id="contact-main" class="section">
+        <div class="container grid-2" style="gap: 4rem;">
+            <!-- Contact Info Card -->
+            <div class="card contact-info" style="padding: 2rem;">
+                <h2 class="section-title" style="font-size: 1.5rem;">Mes <span class="gradient">coordonnées</span></h2>
+                <ul class="coords" style="list-style: none; padding: 0; font-size: 1.1rem;">
+                    <li style="margin-bottom: 1rem;">
+                        <strong>Email :</strong><br>
+                        <a href="mailto:Milann.lede@icloud.com">Milann.lede@icloud.com</a>
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>Téléphone :</strong><br>
+                        <a href="tel:+330749522451">+33 07 49 52 24 51</a>
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>GitHub :</strong><br>
+                        <a href="https://github.com/Milann-lede" target="_blank">github.com/Milann-lede</a>
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        <strong>LinkedIn :</strong><br>
+                        <a href="https://www.linkedin.com/in/milann-lede/"
+                            target="_blank">linkedin.com/in/milann-lede</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Formulaire -->
+            <form id="contact-form" class="contact-form">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Envoyer un <span
+                        class="gradient">message</span></h2>
+                <div class="form-row">
+                    <label for="name">Nom</label>
+                    <input id="name" name="name" type="text" required placeholder="Votre nom" />
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required placeholder="votre@email.com" />
+                </div>
+
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                        placeholder="Bonjour, j'aimerais..."></textarea>
+                </div>
+
+                <button class="btn primary" type="submit">Envoyer</button>
+                <p class="form-status" id="form-status"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section "Pourquoi me choisir ?" (Le truc en plus) -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi <span class="gradient">me choisir ?</span></h2>
+            <div class="projects-grid">
+                <article class="card">
+                    <div class="content">
+                        <h3>🎨 Design Moderne</h3>
+                        <p>Je crée des interfaces esthétiques et intuitives qui mettent en valeur votre contenu et
+                            captivent vos visiteurs.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="content">
+                        <h3>⚡ Performance</h3>
+                        <p>Un site rapide est essentiel. J'optimise chaque ligne de code pour garantir des temps de
+                            chargement minimaux.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="content">
+                        <h3>📱 Responsive</h3>
+                        <p>Votre site sera parfait sur tous les écrans : ordinateurs, tablettes et smartphones.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <p style="margin: 0;">© 2025 — Portfolio de Milann</p>
+            <a href="./admin/login.html"
+                style="color: rgba(255,255,255,0.1); text-decoration: none; font-size: 0.8rem;">Admin</a>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu burger et le formulaire -->
+    <script src="asset/JS/scrip.js"></script>
+
+</body>
+
+</html>

@@ -358,10 +358,12 @@ body{
 .contact-info a{
   color:var(--text);
   text-decoration: none;
-  transition: color 0.3s;
+  display: inline-block; /* Required for transform */
+  transition: all 0.3s ease;
 }
 .contact-info a:hover {
   color: var(--accent-start);
+  transform: scale(1.1);
 }
 
 .contact-form{

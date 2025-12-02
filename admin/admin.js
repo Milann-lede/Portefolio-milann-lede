@@ -1,0 +1,241 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+    const addProjectForm = document.getElementById('add-project-form');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    // --- LOGIN PAGE LOGIC ---
+    if (loginForm) {
+        // Redirect if already logged in
+        if (localStorage.getItem('isAdmin') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = loginForm.username.value;
+            const password = loginForm.password.value;
+            const errorMsg = document.getElementById('login-error');
+
+            if (username === 'Milan' && password === '1234') {
+                localStorage.setItem('isAdmin', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                errorMsg.textContent = "Identifiants incorrects";
+            }
+        });
+    }
+
+    // --- DASHBOARD LOGIC ---
+    if (window.location.pathname.includes('dashboard.html')) {
+        // Check Auth
+        if (localStorage.getItem('isAdmin') !== 'true') {
+            window.location.href = 'login.html';
+            return;
+        }
+
+        // Logout
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('isAdmin');
+                window.location.href = '../index.html';
+            });
+        }
+
+        // Render Projects List
+        renderAdminProjects();
+
+        // Add Project
+        if (addProjectForm) {
+            addProjectForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const newProject = {
+                    id: Date.now(), // Unique ID
+                    title: document.getElementById('title').value,
+                    description: document.getElementById('description').value,
+                    shortDesc: document.getElementById('description').value.substring(0, 100) + '...', // Auto-generate short desc
+                    image: document.getElementById('image').value,
+                    link: document.getElementById('link').value,
+                    category: document.getElementById('category').value,
+                    role: "Admin Added", // Default
+                    context: "Projet ajouté via Admin",
+                    tools: "N/A",
+                    stack: "N/A",
+                    duration: "N/A",
+                    archived: false
+                };
+
+                // Get existing projects
+                const projects = getProjectsFromStorage();
+                projects.push(newProject);
+                saveProjectsToStorage(projects);
+
+                // Reset form and refresh list
+                addProjectForm.reset();
+                renderAdminProjects();
+                alert('Projet ajouté avec succès !');
+            });
+        }
+    }
+});
+
+// Helper to get projects
+function getProjectsFromStorage() {
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+        return JSON.parse(storedProjects);
+    }
+    return [];
+}
+
+function saveProjectsToStorage(projects) {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+function renderAdminProjects() {
+    const activeList = document.getElementById('admin-projects-list');
+    const archivedList = document.getElementById('archived-projects-list');
+
+    if (!activeList || !archivedList) return;
+
+    const projects = getProjectsFromStorage();
+
+    // Active Projects
+    const activeProjects = projects.filter(p => !p.archived);
+    if (activeProjects.length === 0) {
+        activeList.innerHTML = '<p>Aucun projet actif.</p>';
+    } else {
+        activeList.innerHTML = activeProjects.map(p => `
+            <div class="admin-project-item">
+                <div class="admin-project-info">
+                    <h4>${p.title}</h4>
+                    <p>${p.category}</p>
+                </div>
+                <button class="btn delete" onclick="archiveProject(${p.id})">Supprimer (Archiver)</button>
+            </div>
+        `).join('');
+    }
+
+    // Archived Projects
+    const archivedProjects = projects.filter(p => p.archived);
+    if (archivedProjects.length === 0) {
+        archivedList.innerHTML = '<p>Aucune archive.</p>';
+    } else {
+        archivedList.innerHTML = archivedProjects.map(p => `
+            <div class="admin-project-item" style="opacity: 0.7;">
+                <div class="admin-project-info">
+                    <h4>${p.title}</h4>
+                    <p>${p.category}</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn primary small" onclick="restoreProject(${p.id})">Restaurer</button>
+                    <button class="btn delete" style="background: darkred;" onclick="hardDeleteProject(${p.id})">Supprimer DÉFINITIVEMENT</button>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+// --- ACTIONS ---
+
+// Soft Delete (Archive)
+window.archiveProject = function (id) {
+    if (confirm('Voulez-vous archiver ce projet ? Il ne sera plus visible sur le site.')) {
+        let projects = getProjectsFromStorage();
+        const project = projects.find(p => p.id === id);
+        if (project) {
+            project.archived = true;
+            saveProjectsToStorage(projects);
+            renderAdminProjects();
+        }
+    }
+};
+
+// Restore
+window.restoreProject = function (id) {
+    let projects = getProjectsFromStorage();
+    const project = projects.find(p => p.id === id);
+    if (project) {
+        project.archived = false;
+        saveProjectsToStorage(projects);
+        renderAdminProjects();
+    }
+};
+
+// Hard Delete
+window.hardDeleteProject = function (id) {
+    if (confirm('⚠️ ATTENTION : Cette action est irréversible. Voulez-vous vraiment supprimer ce projet ?')) {
+        let projects = getProjectsFromStorage();
+        projects = projects.filter(p => p.id !== id);
+        saveProjectsToStorage(projects);
+        renderAdminProjects();
+    }
+};
+
+// Reset to Defaults
+window.resetToDefaults = function () {
+    if (confirm('Cela va ajouter les projets par défaut (Jardins de Marie, etc.) s\'ils sont manquants. Continuer ?')) {
+        // We need the default projects. Since we can't import easily, we'll define the critical ones here.
+        // This is a failsafe.
+        const defaultProjects = [
+            {
+                id: 1,
+                title: "ÉDUQTOI",
+                category: "scolaire",
+                image: "./asset/image/eduqtoi.png",
+                role: "Développeur Front-end",
+                context: "Projet scolaire - Lycée Arthur Rimbaud",
+                tools: "VS Code, Figma",
+                stack: "HTML, CSS, JavaScript",
+                duration: "sur 2 ans",
+                description: "Site éducatif conçu pour aider les nouveaux lycéens à s'orienter et à découvrir les spécialités du lycée. L'objectif était de créer une interface intuitive et attrayante pour un public jeune.",
+                link: "https://eduqtoi.netlify.app/",
+                shortDesc: "Site éducatif pour aider les nouveaux lycéens.",
+                archived: false
+            },
+            {
+                id: 2,
+                title: "Portfolio Tristan Lédé",
+                category: "perso",
+                image: "./asset/image/portfolio-tristan.png",
+                role: "Développeur Fullstack",
+                context: "Projet personnel",
+                tools: "VS Code, GitHub",
+                stack: "HTML5, CSS3, JS, EmailJS",
+                duration: "3 semaines",
+                description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
+                link: "https://tristan-lede.netlify.app/",
+                shortDesc: "Un vrai portfolio pour présenter mes compétences.",
+                archived: false
+            },
+            {
+                id: 3,
+                title: "Les Jardins de Marie",
+                category: "scolaire",
+                image: "./asset/image/projet-ecole.png",
+                role: "Co-développeur",
+                context: "Devoir en binôme",
+                tools: "Git, Trello",
+                stack: "HTML, CSS, JS",
+                duration: "1 semaine",
+                description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
+                link: "https://les-jardins-de-marie.netlify.app/",
+                shortDesc: "Un projet réalisé en binôme pour un devoir.",
+                archived: false
+            }
+        ];
+
+        let currentProjects = getProjectsFromStorage();
+
+        // Add defaults if they don't exist (check by ID)
+        defaultProjects.forEach(defP => {
+            if (!currentProjects.some(p => p.id === defP.id)) {
+                currentProjects.push(defP);
+            }
+        });
+
+        saveProjectsToStorage(currentProjects);
+        renderAdminProjects();
+        alert('Projets par défaut restaurés !');
+    }
+};

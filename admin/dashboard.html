@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin — Milann</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/style/styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <div class="container nav-wrap">
+            <div class="logo">Dashboard <span class="gradient">Admin</span></div>
+            <div class="admin-nav">
+                <a href="../index.html" class="nav-link">Retour au site</a>
+                <button id="logout-btn" class="btn small">Déconnexion</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section">
+        <h2 class="section-title">Gérer les <span class="gradient">Projets</span></h2>
+
+        <!-- Formulaire d'ajout -->
+        <div class="admin-card">
+            <h3>Ajouter un nouveau projet</h3>
+            <form id="add-project-form">
+                <div class="form-group">
+                    <label for="title">Titre du projet</label>
+                    <input type="text" id="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description (courte)</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Image du projet (URL)</label>
+                    <input type="text" id="image" placeholder="./asset/image/..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="link">Lien du projet (URL)</label>
+                    <input type="url" id="link" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Catégorie</label>
+                    <select id="category">
+                        <option value="scolaire">Scolaire</option>
+                        <option value="perso">Personnel</option>
+                        <option value="stage">Stage</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn primary">Publier le projet</button>
+            </form>
+        </div>
+
+        <!-- Liste des projets existants -->
+        <div class="admin-card mt-2">
+            <h3>Projets existants</h3>
+            <div id="admin-projects-list" class="admin-projects-list">
+                <!-- Injecté par JS -->
+            </div>
+        </div>
+
+        <!-- Archives -->
+        <div class="admin-card mt-2" style="border-color: rgba(255, 165, 0, 0.3);">
+            <h3 style="color: orange;">🗄️ Archives (Corbeille)</h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">Les projets ici ne sont pas visibles sur le site.</p>
+            <div id="archived-projects-list" class="admin-projects-list">
+                <!-- Injecté par JS -->
+            </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="admin-card mt-2" style="border-color: rgba(255, 0, 0, 0.3); text-align: right;">
+            <h3 style="color: #f87171; text-align: left;">⚠️ Zone de danger</h3>
+            <p style="text-align: left;">Si vous avez perdu les projets d'origine (Jardins de Marie, etc.), vous pouvez
+                les restaurer ici.</p>
+            <button onclick="resetToDefaults()" class="btn" style="background: #ef4444; color: white;">Restaurer les
+                projets par défaut</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann</p>
+        </div>
+    </footer>
+
+    <script src="../asset/JS/projets.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
