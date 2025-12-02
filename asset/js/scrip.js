@@ -114,7 +114,7 @@ function initCarousel() {
 
             if (featuredProjects.length > 0) {
                 slidesContainer.innerHTML = featuredProjects.map(p => `
-                    <div class="carousel-slide">
+                    <div class="carousel-slide" onclick="window.location.href='./projets.html?id=${p.id}'" style="cursor: pointer;">
                         <img src="${p.image}" alt="${p.title}" class="slide-image">
                         <div class="slide-content">
                             <h3>${p.title}</h3>

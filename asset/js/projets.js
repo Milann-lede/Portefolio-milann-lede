@@ -119,13 +119,13 @@ filterBtns.forEach(btn => {
 });
 
 
-// 5. Gestion de la Modale (Gardée car demandée par l'utilisateur)
+// 5. Gestion de la Modale
 const modal = document.getElementById('project-modal');
 const modalBody = modal.querySelector('.modal-body');
 const closeBtn = modal.querySelector('.close-modal');
 
-// Fonction appelée par le onclick dans le HTML généré
-window.openProjectModal = function (id) {
+// Fonction pour ouvrir la modale
+function openProjectModal(id) {
     const project = projects.find(p => p.id === id);
     if (project) {
         fillModal(project);
@@ -135,8 +135,9 @@ window.openProjectModal = function (id) {
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
     }
-};
+}
 
+// Remplir le contenu de la modale
 function fillModal(project) {
     modalBody.innerHTML = `
         <img src="${project.image}" alt="${project.title}" class="modal-header-img">
@@ -177,14 +178,7 @@ function fillModal(project) {
     `;
 }
 
-closeBtn.addEventListener('click', closeModal);
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
-});
-
+// Fermeture de la modale
 function closeModal() {
     modal.classList.remove('show');
     setTimeout(() => {
@@ -192,3 +186,28 @@ function closeModal() {
         document.body.style.overflow = '';
     }, 300);
 }
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+}
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// --- DEEP LINKING LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Check for 'id' parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('id');
+
+    if (projectId) {
+        const id = Number(projectId);
+        const project = projects.find(p => p.id === id && !p.archived);
+        if (project) {
+            openProjectModal(id);
+        }
+    }
+});
