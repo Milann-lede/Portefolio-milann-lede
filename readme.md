@@ -1,68 +1,94 @@
-# Portfolio — Séminaire 3
+# 🎨 Portfolio - Milann Lédé
 
-Description
-- Portefeuille personnel pour le séminaire 3 : présentation des projets, compétences et travaux réalisés.
-- Objectif : centraliser les livrables, démonstrations et ressources pédagogiques du séminaire.
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-Active-success.svg)
 
-Fonctionnalités
-- Pages de présentation (accueil, projets, CV/compétences).
-- Galeries ou exemples de projets avec captures et liens.
-- Documentation et ressources associées (codes, assets, notes).
+Bienvenue sur le dépôt de mon **Portfolio Personnel**. Ce projet est une vitrine de mes compétences et réalisations en tant que Développeur Web. Il a évolué d'un site statique vers une **Single Page Application (SPA)** dynamique administrable.
 
-Prérequis
-- Navigateur web moderne.
-- (Optionnel) Node.js + un serveur statique pour servir localement (ex. live-server, http-server).
+---
 
-Installation / exécution rapide
-1. Cloner le dépôt :
-    git clone <url-du-depot>
-2. Ouvrir localement :
-    - Double-cliquer sur `index.html` ou
+## ✨ Fonctionnalités Clés
 
+### 🚀 Expérience Utilisateur
+*   **Design Moderne & Responsive** : Interface soignée, animations fluides et adaptation parfaite sur mobile/tablette.
+*   **Deep Linking** : Les projets mis en avant sur l'accueil redirigent directement vers leurs détails.
+*   **Formulaire de Contact** : Intégration fonctionnelle avec **EmailJS**.
 
-Structure 
+### 🛠️ Panel Administrateur (Nouveau !)
+Gérez le contenu du site sans toucher une ligne de code grâce au nouveau Dashboard sécurisé.
+*   **Ajout de Projets** : Formulaire complet pour ajouter de nouvelles réalisations.
+*   **Mode "Projet Phare" ⭐** : Sélectionnez les projets à afficher dans le carousel de l'accueil.
+*   **Système d'Archives** : Supprimez (archivez) des projets et restaurez-les si besoin (Soft Delete).
+*   **Persistance** : Toutes les données sont sauvegardées localement dans votre navigateur (`localStorage`).
+
+---
+
+## 💻 Stack Technique
+
+| Technologie | Usage |
+| :--- | :--- |
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Structure sémantique et accessible |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Design, Flexbox, Grid, Animations |
+| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Logique dynamique, DOM, LocalStorage |
+| ![EmailJS](https://img.shields.io/badge/EmailJS-F7DF1E?style=flat-square&logo=gmail&logoColor=black) | Envoi d'emails sans serveur backend |
+
+---
+
+## 🚀 Installation & Utilisation
+
+Ce projet ne nécessite **aucune installation serveur** (Node.js, PHP, etc.). Il fonctionne directement dans le navigateur.
+
+1.  **Cloner le projet**
+    ```bash
+    git clone https://github.com/Milann-lede/Portefolio-milann-lede.git
+    ```
+2.  **Ouvrir le site**
+    *   Ouvrez simplement le fichier `index.html` dans votre navigateur.
+    *   *Recommandé :* Utilisez l'extension "Live Server" de VS Code pour une meilleure expérience.
+
+---
+
+## 🔐 Accès Admin
+
+Pour accéder au panel d'administration et gérer les projets :
+
+1.  Cliquez sur le lien **"Admin"** caché tout en bas à droite du footer.
+2.  Connectez-vous avec les identifiants de démonstration :
+    *   **Utilisateur** : `Milan`
+    *   **Mot de passe** : `1234`
+
+> **Note :** Les données étant stockées dans le `localStorage`, si vous changez de navigateur ou videz le cache, les projets ajoutés manuellement disparaîtront (mais les projets par défaut peuvent être restaurés en un clic).
+
+---
+
+## 📂 Structure du Projet
+
 ```
-seminaire-3/
-├─ README.md
-├─ index.html
-├─ .gitignore
-│  
-├─ assets/
-│  └─ image/
-│     ├─Photo de profil copie.jpeg
-│     ├─ css-logo.png
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     ├─ 
-│     └─
-│
-│
-└─style
-  └─style.css 
+📁 Portefolio-milann-lede/
+├── 📄 index.html          # Page d'accueil
+├── 📄 projets.html        # Liste des projets
+├── 📄 a-propos.html       # CV et parcours
+├── 📄 contact.html        # Formulaire de contact
+├── 📁 admin/              # Interface d'administration
+│   ├── 📄 login.html
+│   ├── 📄 dashboard.html
+│   └── 📄 admin.js
+├── 📁 asset/
+│   ├── 📁 style/          # Feuilles de style CSS
+│   ├── 📁 JS/             # Scripts (projets.js, scrip.js)
+│   └── 📁 image/          # Images et assets
+└── 📄 RAPPORT_TECHNIQUE.html # Documentation détaillée
 ```
 
-Bonnes pratiques
-- Documenter chaque projet avec objectif, technologies, étapes et capture d’écran.
-- Ajouter un fichier LICENSE si le contenu doit être partagé publiquement.
-- Versionner avec des commits clairs et descriptifs.
+---
 
-Déploiement
-- Déployer sur GitHub Pages, Netlify ou Vercel en pointant la racine du dossier.
-- Vérifier les chemins relatifs pour les assets avant déploiement.
+## 📞 Contact
 
-Contribuer
-- Ouvrir une issue pour proposer un ajout ou corriger une page.
-- Faire une branche par fonctionnalité puis une pull request.
+**Milann Lédé**  
+📧 [Milann.lede@icloud.com](mailto:Milann.lede@icloud.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/milann-lede/) | [GitHub](https://github.com/Milann-lede)
 
-Licence et contact
-- Ajouter la licence souhaitée (MIT recommandé pour code ouvert).
-- Auteur : [Votre nom] — contact : [m.lede@skolae.fr]
+---
 
-Notes
-- Adapter le contenu et la mise en page selon les consignes du séminaire.
-- Garder le README à jour avec les étapes d’exécution et la structure.
+*Fait avec ❤️ par Milann.*
