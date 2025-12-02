@@ -1,0 +1,208 @@
+/* === Styles spécifiques à la page "À propos" === */
+
+/* Fond sombre et texte clair pour la page */
+body {
+  background-color: var(--bg, #0e0f12);
+  color: var(--text, #eef2f7);
+}
+
+/* Styles pour la section "about" */
+.about {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.about h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-start, #ff62c0), var(--accent-end, #7a5cff));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(255, 98, 192, 0.3));
+}
+
+.about .subtitle {
+  font-size: 1.1rem;
+  color: var(--muted, #b8c0cc);
+  margin-bottom: 4rem;
+}
+
+/* === Styles de la Timeline Futuriste === */
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* La ligne centrale en dégradé */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background: linear-gradient(to bottom, var(--accent-start, #ff62c0), var(--accent-end, #7a5cff));
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(122, 92, 255, 0.5);
+}
+
+/* Row wrapper for flex alignment */
+.timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Columns */
+.timeline-col {
+  flex: 1;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-col.left {
+  align-items: flex-end; /* Box close to center */
+  text-align: left; /* Text aligned left as requested */
+}
+
+.timeline-col.right {
+  align-items: flex-start; /* Box close to center */
+  text-align: left;
+}
+
+/* Icônes sur la ligne */
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--card, #151823);
+  border: 3px solid var(--accent-start, #ff62c0);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 98, 192, 0.7);
+  flex-shrink: 0;
+}
+
+.timeline-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #eef2f7;
+    stroke-width: 2;
+}
+
+/* Cartes de contenu */
+.timeline .content {
+  padding: 20px 30px;
+  background-color: var(--card, #151823);
+  position: relative;
+  border-radius: var(--radius, 1.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+              inset 0 0 15px rgba(255, 98, 192, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure it takes available width in column */
+  max-width: 450px; /* Limit width */
+}
+
+.timeline .content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
+                inset 0 0 20px rgba(255, 98, 192, 0.2),
+                0 0 25px rgba(122, 92, 255, 0.3);
+}
+
+.timeline .content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text, #eef2f7);
+}
+
+.timeline .content p, .timeline .content ul {
+  color: var(--muted, #b8c0cc);
+  text-align: left;
+}
+.timeline .content ul {
+    padding-left: 20px;
+}
+
+/* Badges de compétences */
+.skills span {
+  display: inline-block;
+  background-color: var(--bg, #0e0f12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Bouton CV */
+.timeline .btn {
+  background: linear-gradient(135deg, var(--accent-start, #ff62c0), var(--accent-end, #7a5cff));
+  color: #0b0b0f;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(255, 98, 192, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 98, 192, 0.5);
+}
+
+/* Responsive pour la timeline */
+@media screen and (max-width: 768px) {
+  .timeline::after { left: 25px; } /* Center of 50px icon */
+  
+  .timeline-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60px; /* Space for icon */
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .timeline-col {
+    padding: 0;
+    width: 100%;
+  }
+  
+  .timeline-col.left, .timeline-col.right {
+    align-items: flex-start;
+  }
+  
+  .timeline-col:empty {
+    display: none;
+  }
+  
+  .timeline .content {
+    max-width: 100%;
+  }
+}
+
+/* Helper classes extracted from inline styles */
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.download-icon {
+    margin-right: 8px; 
+    vertical-align: middle;
+}

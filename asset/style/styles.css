@@ -22,6 +22,8 @@ body{
   scroll-behavior: smooth;
 }
 
+
+
 .no-style-link {
     text-decoration: none !important;
     color: inherit !important;
@@ -528,4 +530,123 @@ textarea:focus{
   .cta {
     justify-content: center;
   }
+}
+
+/* Styles pour le carrousel */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Largeur maximale pour le carrousel */
+  margin: 0; /* Aligner le carrousel à gauche */
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  padding-top: 105%; /* Ratio hauteur/largeur pour être responsive (479/455) */
+  overflow: hidden;
+  border-radius: 10px; /* Bords arrondis pour le conteneur */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée */
+  background: var(--card); /* Utilise la variable de couleur de votre thème */
+}
+
+.carousel-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* C'est ici que vous pouvez changer le style de la carte du projet */
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Pour empiler l'image et le contenu */
+  justify-content: flex-start; /* Aligner en haut */
+  font-size: 1rem; /* Taille de police ajustée pour le contenu */
+  color: var(--text); /* Utilise la variable de couleur de votre thème */
+  padding: 0; /* On enlève le padding pour que l'image touche les bords */
+  text-align: center;
+  overflow: hidden; /* Cache le contenu qui pourrait déborder */
+}
+
+.slide-image {
+  width: 100%;
+  height: 55%; /* L'image prend un peu plus de la moitié */
+  object-fit: cover; /* L'image couvre la zone sans se déformer */
+}
+
+.slide-content {
+  padding: 20px;
+  height: 45%; /* Le contenu prend le reste */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.slide-content h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Pour centrer verticalement les boutons */
+  background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
+  color: black; /* Flèches en noir */
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: white; /* Fond blanc opaque au survol */
+}
+
+.prev-btn { left: -50px; } /* Positionné à l'extérieur sur la gauche */
+.next-btn { right: -50px; } /* Positionné à l'extérieur sur la droite */
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: white;
+}
+
+.more-info-wrapper {
+  text-align: center; 
+  margin-top: 2rem;
 }

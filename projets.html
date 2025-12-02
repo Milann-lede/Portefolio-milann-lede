@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mes Projets — Milann</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./asset/style/styles.css" />
+    <link rel="stylesheet" href="./asset/style/projets.css" />
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo">Mon<span>Portfolio</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="./index.html" class="nav-link">Accueil</a>
+                <a href="./a-propos.html" class="nav-link">À propos de moi</a>
+                <a href="./projets.html" class="nav-link active">Projets</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Photo de profile -->
+            <div class="profile-pic-wrap">
+                <a href="./asset/image/milann lede cv 2024.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="/asset/image/Photo de milann lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+                </a>
+            </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section projects-section">
+            <div class="container">
+                <h1 class="section-title">Mes <span class="gradient">projets</span></h1>
+
+                <!-- Barre de filtrage -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="scolaire">Scolaire</button>
+                    <button class="filter-btn" data-filter="perso">Personnel</button>
+                    <button class="filter-btn" data-filter="stage">Stage</button>
+                </div>
+
+                <!-- Grille de projets -->
+                <div class="projects-grid-page">
+
+                    <!-- Projet 1 -->
+                    <article class="project-card" data-category="scolaire" data-id="1">
+                        <div class="card-image-wrapper">
+                            <img src="./asset/image/eduqtoi.png" alt="ÉDUQTOI" class="project-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>ÉDUQTOI</h3>
+                            <p>Site éducatif pour aider les nouveaux lycéens.</p>
+                            <button class="btn primary small open-modal">Voir plus</button>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 -->
+                    <article class="project-card" data-category="perso" data-id="2">
+                        <div class="card-image-wrapper">
+                            <img src="./asset/image/portfolio-tristan.png" alt="Portfolio Tristan Lédé"
+                                class="project-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Portfolio Tristan Lédé</h3>
+                            <p>Un vrai portfolio pour présenter mes compétences.</p>
+                            <button class="btn primary small open-modal">Voir plus</button>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3 -->
+                    <article class="project-card" data-category="scolaire" data-id="3">
+                        <div class="card-image-wrapper">
+                            <img src="./asset/image/projet-ecole.png" alt="Projet École" class="project-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Projet à deux École</h3>
+                            <p>Un projet réalisé en binôme pour un devoir.</p>
+                            <button class="btn primary small open-modal">Voir plus</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Portfolio de Milann</p>
+        </div>
+    </footer>
+
+    <script src="asset/JS/scrip.js"></script>
+    <script src="asset/JS/projets.js"></script>
+</body>
+
+</html>

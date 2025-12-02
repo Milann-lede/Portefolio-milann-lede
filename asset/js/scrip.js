@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initRevealAnimations();
     initBurgerMenu();
     initContactForm();
+    initCarousel();
 });
 
 function initRevealAnimations() {
@@ -14,10 +15,7 @@ function initRevealAnimations() {
         return;
     }
 
-    if (!('IntersectionObserver' in window)) {
-        cards.forEach(card => card.classList.add('visible'));
-        return;
-    }
+
 
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(({ isIntersecting, target }) => {
@@ -102,4 +100,57 @@ function scheduleStatusClear(element) {
     setTimeout(() => {
         element.textContent = '';
     }, 5000);
+}
+
+function initCarousel() {
+    const slides = document.querySelector('.carousel-slides');
+    const slideItems = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+
+    if (!slides || slideItems.length === 0) {
+        return;
+    }
+
+    let currentIndex = 0;
+    const totalSlides = slideItems.length;
+
+    // Créer les indicateurs
+    for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('div');
+        indicator.classList.add('indicator');
+        indicatorsContainer.appendChild(indicator);
+    }
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function goToNext() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function goToPrev() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    nextBtn?.addEventListener('click', goToNext);
+    prevBtn?.addEventListener('click', goToPrev);
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    updateCarousel();
 }
