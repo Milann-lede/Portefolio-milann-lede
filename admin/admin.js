@@ -352,10 +352,10 @@ window.resetToDefaults = function () {
                 stack: "Fullstack IA",
                 duration: "1 semaine",
                 description: "Un jeu de gestion de ferme complet où l'on peut acheter des parcelles, des véhicules et des graines pour gérer son entreprise agricole. Le jeu inclut un système de compte utilisateur pour sauvegarder sa progression.",
-                link: "#",
+                link: "https://mini-farm-manager.netlify.app/",
                 shortDesc: "Jeu de gestion de ferme créé avec l'IA Delia.",
                 archived: false,
-                featured: true
+                featured: false
             }
         ];
 

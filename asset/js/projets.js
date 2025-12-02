@@ -1,5 +1,5 @@
 // 1. Créer une liste de projets (comme users dans le repo)
-// 1. Créer une liste de projets (comme users dans le repo)
+
 const defaultProjects = [
     {
         id: 1,
@@ -59,7 +59,7 @@ const defaultProjects = [
         description: "Un jeu de gestion de ferme complet où l'on peut acheter des parcelles, des véhicules et des graines pour gérer son entreprise agricole. Le jeu inclut un système de compte utilisateur pour sauvegarder sa progression.",
         link: "https://mini-farm-manager.netlify.app/",
         shortDesc: "Jeu de gestion de ferme créé avec l'IA Delia.",
-        featured: true
+        featured: false
     }
 ];
 
