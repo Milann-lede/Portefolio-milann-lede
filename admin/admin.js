@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = loginForm.password.value;
             const errorMsg = document.getElementById('login-error');
 
-            if (username === 'Milan' && password === '1234') {
+            if (username === 'Milann' && password === '1234') {
                 localStorage.setItem('isAdmin', 'true');
                 window.location.href = 'dashboard.html';
             } else {
