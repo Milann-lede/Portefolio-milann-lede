@@ -227,4 +227,4 @@ dist
 
 ### Custom ###
 # Ignore the technical report if desired, or keep it.
-# RAPPORT_TECHNIQUE.html
+RAPPORT_TECHNIQUE.html

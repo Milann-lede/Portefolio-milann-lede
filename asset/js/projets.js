@@ -43,7 +43,22 @@ const defaultProjects = [
         duration: "1 semaine",
         description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
         link: "https://les-jardins-de-marie.netlify.app/",
-        shortDesc: "Un projet réalisé en binôme pour un devoir.",
+        shortDesc: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire.",
+        featured: true
+    },
+    {
+        id: 4,
+        title: "Minifarm Manager",
+        category: "ia",
+        image: "./asset/image/Projet-farm-ia.png",
+        role: "Prompt Engineer / Concepteur",
+        context: "Projet généré avec l'IA Delia",
+        tools: "Delia (IA)",
+        stack: "Fullstack IA",
+        duration: "1 semaine",
+        description: "Un jeu de gestion de ferme complet où l'on peut acheter des parcelles, des véhicules et des graines pour gérer son entreprise agricole. Le jeu inclut un système de compte utilisateur pour sauvegarder sa progression.",
+        link: "https://mini-farm-manager.netlify.app/",
+        shortDesc: "Jeu de gestion de ferme créé avec l'IA Delia.",
         featured: true
     }
 ];
@@ -120,7 +135,7 @@ filterBtns.forEach(btn => {
 
 
 // 5. Gestion de la Modale
-const modal = document.getElementById('project-modal');
+const modal = document.querySelector('#project-modal');
 const modalBody = modal.querySelector('.modal-body');
 const closeBtn = modal.querySelector('.close-modal');
 

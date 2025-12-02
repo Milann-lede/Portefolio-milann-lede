@@ -103,6 +103,49 @@
         </div>
     </footer>
 
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEditModal()">&times;</span>
+            <h3>Modifier le projet</h3>
+            <form id="edit-project-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-title">Titre</label>
+                    <input type="text" id="edit-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-description">Description</label>
+                    <textarea id="edit-description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-image">Image (URL)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="text" id="edit-image" required placeholder="./asset/image/...">
+                        <input type="file" id="edit-image-file" accept="image/*" style="display: none;">
+                        <button type="button" class="btn small"
+                            onclick="document.querySelector('#edit-image-file').click()">Choisir fichier</button>
+                    </div>
+                    <small style="color: #888; font-size: 0.8em;">Sélectionnez une image du dossier asset/image</small>
+                </div>
+                <div class="form-group">
+                    <label for="edit-link">Lien</label>
+                    <input type="url" id="edit-link" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-category">Catégorie</label>
+                    <select id="edit-category">
+                        <option value="scolaire">Scolaire</option>
+                        <option value="perso">Personnel</option>
+                        <option value="stage">Stage</option>
+                        <option value="ia">Intelligence Artificielle</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn primary">Sauvegarder</button>
+            </form>
+        </div>
+    </div>
+
     <script src="../asset/JS/projets.js"></script>
     <script src="admin.js"></script>
 </body>

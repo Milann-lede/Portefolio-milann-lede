@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
-    const addProjectForm = document.getElementById('add-project-form');
-    const logoutBtn = document.getElementById('logout-btn');
+    const loginForm = document.querySelector('#login-form');
+    const addProjectForm = document.querySelector('#add-project-form');
+    const logoutBtn = document.querySelector('#logout-btn');
 
     // --- LOGIN PAGE LOGIC ---
     if (loginForm) {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const username = loginForm.username.value;
             const password = loginForm.password.value;
-            const errorMsg = document.getElementById('login-error');
+            const errorMsg = document.querySelector('#login-error');
 
             if (username === 'Milann' && password === '1234') {
                 localStorage.setItem('isAdmin', 'true');
@@ -44,6 +44,44 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Projects List
         renderAdminProjects();
 
+        // Event Delegation for Active Projects
+        const activeList = document.querySelector('#admin-projects-list');
+        if (activeList) {
+            activeList.addEventListener('click', (e) => {
+                const target = e.target;
+                const btn = target.closest('button');
+                if (!btn) return;
+
+                const id = Number(btn.dataset.id);
+
+                if (btn.classList.contains('btn-edit')) {
+                    editProject(id);
+                } else if (btn.classList.contains('btn-featured')) {
+                    toggleFeatured(id);
+                } else if (btn.classList.contains('btn-archive')) {
+                    archiveProject(id);
+                }
+            });
+        }
+
+        // Event Delegation for Archived Projects
+        const archivedList = document.querySelector('#archived-projects-list');
+        if (archivedList) {
+            archivedList.addEventListener('click', (e) => {
+                const target = e.target;
+                const btn = target.closest('button');
+                if (!btn) return;
+
+                const id = Number(btn.dataset.id);
+
+                if (btn.classList.contains('btn-restore')) {
+                    restoreProject(id);
+                } else if (btn.classList.contains('btn-hard-delete')) {
+                    hardDeleteProject(id);
+                }
+            });
+        }
+
         // Add Project
         if (addProjectForm) {
             addProjectForm.addEventListener('submit', (e) => {
@@ -51,19 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const newProject = {
                     id: Date.now(), // Unique ID
-                    title: document.getElementById('title').value,
-                    description: document.getElementById('description').value,
-                    shortDesc: document.getElementById('description').value.substring(0, 100) + '...', // Auto-generate short desc
-                    image: document.getElementById('image').value,
-                    link: document.getElementById('link').value,
-                    category: document.getElementById('category').value,
+                    title: document.querySelector('#title').value,
+                    description: document.querySelector('#description').value,
+                    shortDesc: document.querySelector('#description').value.substring(0, 100) + '...', // Auto-generate short desc
+                    image: document.querySelector('#image').value,
+                    link: document.querySelector('#link').value,
+                    category: document.querySelector('#category').value,
                     role: "Admin Added", // Default
                     context: "Projet ajouté via Admin",
                     tools: "N/A",
                     stack: "N/A",
                     duration: "N/A",
                     archived: false,
-                    featured: document.getElementById('featured').checked // New field
+                    featured: document.querySelector('#featured').checked // New field
                 };
 
                 // Get existing projects
@@ -94,8 +132,8 @@ function saveProjectsToStorage(projects) {
 }
 
 function renderAdminProjects() {
-    const activeList = document.getElementById('admin-projects-list');
-    const archivedList = document.getElementById('archived-projects-list');
+    const activeList = document.querySelector('#admin-projects-list');
+    const archivedList = document.querySelector('#archived-projects-list');
 
     if (!activeList || !archivedList) return;
 
@@ -113,10 +151,11 @@ function renderAdminProjects() {
                     <p>${p.category}</p>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button class="btn small" style="background: ${p.featured ? '#fbbf24' : '#4b5563'}; color: ${p.featured ? 'black' : 'white'};" onclick="toggleFeatured(${p.id})">
+                    <button class="btn small btn-featured" data-id="${p.id}" style="background: ${p.featured ? '#fbbf24' : '#4b5563'}; color: ${p.featured ? 'black' : 'white'};">
                         ${p.featured ? 'Retirer Phare' : 'Mettre Phare'}
                     </button>
-                    <button class="btn delete" onclick="archiveProject(${p.id})">Supprimer</button>
+                    <button class="btn small btn-edit" data-id="${p.id}" style="background: #3b82f6; color: white;">Modifier</button>
+                    <button class="btn delete btn-archive" data-id="${p.id}">Supprimer</button>
                 </div>
             </div>
         `).join('');
@@ -134,8 +173,8 @@ function renderAdminProjects() {
                     <p>${p.category}</p>
                 </div>
                 <div style="display: flex; gap: 10px;">
-                    <button class="btn primary small" onclick="restoreProject(${p.id})">Restaurer</button>
-                    <button class="btn delete" style="background: darkred;" onclick="hardDeleteProject(${p.id})">Supprimer DÉFINITIVEMENT</button>
+                    <button class="btn primary small btn-restore" data-id="${p.id}">Restaurer</button>
+                    <button class="btn delete btn-hard-delete" data-id="${p.id}" style="background: darkred;">Supprimer DÉFINITIVEMENT</button>
                 </div>
             </div>
         `).join('');
@@ -143,6 +182,65 @@ function renderAdminProjects() {
 }
 
 // --- ACTIONS ---
+
+// Edit Project
+window.editProject = function (id) {
+    const projects = getProjectsFromStorage();
+    const project = projects.find(p => p.id === id);
+    if (project) {
+        console.log('Editing project:', project);
+        // alert('Modification de : ' + project.title); // Debug removed
+        document.querySelector('#edit-id').value = project.id;
+        document.querySelector('#edit-title').value = project.title;
+        document.querySelector('#edit-description').value = project.description;
+        document.querySelector('#edit-image').value = project.image;
+        document.querySelector('#edit-link').value = project.link;
+        document.querySelector('#edit-category').value = project.category;
+
+        document.querySelector('#edit-modal').style.display = 'block';
+    }
+};
+
+window.closeEditModal = function () {
+    document.querySelector('#edit-modal').style.display = 'none';
+};
+
+// Handle Image File Selection
+const editImageFile = document.querySelector('#edit-image-file');
+if (editImageFile) {
+    editImageFile.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const fileName = e.target.files[0].name;
+            // Auto-fill the path assuming the user puts images in asset/image/
+            document.querySelector('#edit-image').value = `./asset/image/${fileName}`;
+        }
+    });
+}
+
+// Handle Edit Submit
+const editForm = document.querySelector('#edit-project-form');
+if (editForm) {
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = Number(document.querySelector('#edit-id').value);
+        const projects = getProjectsFromStorage();
+        const projectIndex = projects.findIndex(p => p.id === id);
+
+        if (projectIndex !== -1) {
+            projects[projectIndex].title = document.querySelector('#edit-title').value;
+            projects[projectIndex].description = document.querySelector('#edit-description').value;
+            projects[projectIndex].shortDesc = document.querySelector('#edit-description').value.substring(0, 100) + '...';
+            projects[projectIndex].image = document.querySelector('#edit-image').value;
+            projects[projectIndex].link = document.querySelector('#edit-link').value;
+            projects[projectIndex].category = document.querySelector('#edit-category').value;
+
+            saveProjectsToStorage(projects);
+            renderAdminProjects();
+            closeEditModal();
+            alert('Projet modifié avec succès !');
+        }
+    });
+}
 
 // Toggle Featured
 window.toggleFeatured = function (id) {
@@ -240,6 +338,22 @@ window.resetToDefaults = function () {
                 description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
                 link: "https://les-jardins-de-marie.netlify.app/",
                 shortDesc: "Un projet réalisé en binôme pour un devoir.",
+                archived: false,
+                featured: true
+            },
+            {
+                id: 4,
+                title: "Minifarm Manager",
+                category: "ia",
+                image: "./asset/image/Projet-farm-ia.png",
+                role: "Prompt Engineer / Concepteur",
+                context: "Projet généré avec l'IA Delia",
+                tools: "Delia (IA)",
+                stack: "Fullstack IA",
+                duration: "1 semaine",
+                description: "Un jeu de gestion de ferme complet où l'on peut acheter des parcelles, des véhicules et des graines pour gérer son entreprise agricole. Le jeu inclut un système de compte utilisateur pour sauvegarder sa progression.",
+                link: "#",
+                shortDesc: "Jeu de gestion de ferme créé avec l'IA Delia.",
                 archived: false,
                 featured: true
             }
