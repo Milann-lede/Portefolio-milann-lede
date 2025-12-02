@@ -57,7 +57,7 @@ Pour accéder au panel d'administration et gérer les projets :
 1.  Cliquez sur le lien **"Admin"** caché tout en bas à droite du footer.
 2.  Connectez-vous avec les identifiants de démonstration :
     *   **Utilisateur** : `Milan`
-    *   **Mot de passe** : *(Demandez à l'administrateur)*
+    *   **Mot de passe** : `1234`
 
 > **Note :** Les données étant stockées dans le `localStorage`, si vous changez de navigateur ou videz le cache, les projets ajoutés manuellement disparaîtront (mais les projets par défaut peuvent être restaurés en un clic).
 
