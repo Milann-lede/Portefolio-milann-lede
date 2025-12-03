@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <link rel="stylesheet" href="./asset/style/styles.css" />
+    <link rel="stylesheet" href="./asset/style/contact.css" />
 </head>
 
 <body>
@@ -93,24 +94,24 @@
 
     <!-- Contact Grid -->
     <section id="contact-main" class="section">
-        <div class="container grid-2" style="gap: 4rem;">
+        <div class="container grid-2 contact-grid">
             <!-- Contact Info Card -->
-            <div class="card contact-info" style="padding: 2rem;">
-                <h2 class="section-title" style="font-size: 1.5rem;">Mes <span class="gradient">coordonnées</span></h2>
-                <ul class="coords" style="list-style: none; padding: 0; font-size: 1.1rem;">
-                    <li style="margin-bottom: 1rem;">
+            <div class="card contact-info contact-info-card">
+                <h2 class="section-title contact-section-title">Mes <span class="gradient">coordonnées</span></h2>
+                <ul class="coords contact-coords">
+                    <li>
                         <strong>Email :</strong><br>
                         <a href="mailto:Milann.lede@icloud.com">Milann.lede@icloud.com</a>
                     </li>
-                    <li style="margin-bottom: 1rem;">
+                    <li>
                         <strong>Téléphone :</strong><br>
                         <a href="tel:+330749522451">+33 07 49 52 24 51</a>
                     </li>
-                    <li style="margin-bottom: 1rem;">
+                    <li>
                         <strong>GitHub :</strong><br>
                         <a href="https://github.com/Milann-lede" target="_blank">github.com/Milann-lede</a>
                     </li>
-                    <li style="margin-bottom: 1rem;">
+                    <li>
                         <strong>LinkedIn :</strong><br>
                         <a href="https://www.linkedin.com/in/milann-lede/"
                             target="_blank">linkedin.com/in/milann-lede</a>
@@ -120,8 +121,7 @@
 
             <!-- Formulaire -->
             <form id="contact-form" class="contact-form">
-                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Envoyer un <span
-                        class="gradient">message</span></h2>
+                <h2 class="section-title contact-form-title">Envoyer un <span class="gradient">message</span></h2>
                 <div class="form-row">
                     <label for="name">Nom</label>
                     <input id="name" name="name" type="text" required placeholder="Votre nom" />
@@ -175,10 +175,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <p style="margin: 0;">© 2025 — Portfolio de Milann</p>
-            <a href="./admin/login.html"
-                style="color: rgba(255,255,255,0.1); text-decoration: none; font-size: 0.8rem;">Admin</a>
+        <div class="container footer-container">
+            <p class="footer-text">© 2025 — Portfolio de Milann</p>
+            <a href="./admin/login.html" class="footer-admin-link">Admin</a>
         </div>
     </footer>
 

@@ -75,11 +75,11 @@ Pour accéder au panel d'administration et gérer les projets :
 │   ├── 📄 login.html
 │   ├── 📄 dashboard.html
 │   └── 📄 admin.js
-├── 📁 asset/
-│   ├── 📁 style/          # Feuilles de style CSS
-│   ├── 📁 JS/             # Scripts (projets.js, scrip.js)
-│   └── 📁 image/          # Images et assets
-└── 📄 RAPPORT_TECHNIQUE.html # Documentation détaillée
+└── 📁 asset/
+    ├── 📁 style/          # Feuilles de style CSS
+    ├── 📁 JS/             # Scripts (projets.js, scrip.js)
+    └── 📁 image/          # Images et assets
+
 ```
 
 ---
