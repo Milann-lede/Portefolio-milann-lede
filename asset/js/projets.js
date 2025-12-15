@@ -24,7 +24,7 @@ const defaultProjects = [
         role: "Développeur Fullstack",
         context: "Projet personnel",
         tools: "VS Code, GitHub",
-        stack: "HTML5, CSS3, JS, EmailJS",
+        stack: "HTML5, CSS3, JavaScript, EmailJS",
         duration: "3 semaines",
         description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
         link: "https://tristan-lede.netlify.app/",
@@ -39,11 +39,11 @@ const defaultProjects = [
         role: "Co-développeur",
         context: "Devoir en binôme",
         tools: "Git, Trello",
-        stack: "HTML, CSS, JS",
+        stack: "HTML, CSS, JavaScript",
         duration: "1 semaine",
         description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
         link: "https://les-jardins-de-marie.netlify.app/",
-        shortDesc: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire.",
+        shortDesc: "Un projet réalisé en binôme pour un devoir scolaire.",
         featured: true
     },
     {

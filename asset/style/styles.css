@@ -161,7 +161,7 @@ body{
   opacity: 1;
 }
 
-.titre-heder {
+.titre-header {
   position: absolute;
   top: 1rem;
   left: 50%;
@@ -291,8 +291,9 @@ body{
   animation: drift 36s linear infinite reverse;
 }
 .card-3d .glow{
-  background: radial-gradient(25rem 13.75rem at 20% 20%, rgba(255,98,192,.35), transparent 60%),
-              radial-gradient(23.75rem 12.5rem at 90% 80%, rgba(122,92,255,.35), transparent 60%);
+  background: 
+    radial-gradient(25rem 13.75rem at 20% 20%, rgba(255,98,192,.35), transparent 60%),
+    radial-gradient(23.75rem 12.5rem at 90% 80%, rgba(122,92,255,.35), transparent 60%);
   filter: blur(0.75rem);
 }
 @keyframes drift{
@@ -535,14 +536,14 @@ textarea:focus{
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Largeur maximale pour le carrousel */
+  max-width: 31.25rem; /* Largeur maximale pour le carrousel */
   margin: 0; /* Aligner le carrousel à gauche */
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
-  padding-top: 105%; /* Ratio hauteur/largeur pour être responsive (479/455) */
+  aspect-ratio: 479/455; /* Ratio hauteur/largeur pour être responsive */
   overflow: hidden;
   border-radius: 10px; /* Bords arrondis pour le conteneur */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée */
@@ -619,8 +620,8 @@ textarea:focus{
   background-color: white; /* Fond blanc opaque au survol */
 }
 
-.prev-btn { left: -50px; } /* Positionné à l'extérieur sur la gauche */
-.next-btn { right: -50px; } /* Positionné à l'extérieur sur la droite */
+.prev-btn { left: -3.125rem; } /* Positionné à l'extérieur sur la gauche */
+.next-btn { right: -3.125rem; } /* Positionné à l'extérieur sur la droite */
 
 .carousel-indicators {
   position: absolute;

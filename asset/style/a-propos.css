@@ -136,6 +136,12 @@ body {
 .timeline .content ul {
     padding-left: 20px;
 }
+.timeline .content li {
+    margin-bottom: 1.5rem;
+}
+.timeline .content li:last-child {
+    margin-bottom: 0;
+}
 
 /* Badges de compétences */
 .skills span {
