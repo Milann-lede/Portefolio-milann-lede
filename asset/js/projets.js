@@ -12,7 +12,7 @@ const defaultProjects = [
         stack: "HTML, CSS, JavaScript",
         duration: "sur 2 ans",
         description: "Site éducatif conçu pour aider les nouveaux lycéens à s'orienter et à découvrir les spécialités du lycée. L'objectif était de créer une interface intuitive et attrayante pour un public jeune.",
-        link: "https://eduqtoi.netlify.app/",
+        link: "https://milann-lede.github.io/EDUQTOI/",
         shortDesc: "Site éducatif pour aider les nouveaux lycéens.",
         featured: true
     },
@@ -77,6 +77,13 @@ if (jardinsProject && jardinsProject.link !== "https://milann-lede.github.io/les
     jardinsProject.link = "https://milann-lede.github.io/les-jardins-de-marie/";
     localStorage.setItem('projects', JSON.stringify(projects));
     console.log('Link for Jardins de Marie updated in localStorage');
+}
+
+const eduqtoiProject = projects.find(p => p.id === 1);
+if (eduqtoiProject && eduqtoiProject.link !== "https://milann-lede.github.io/EDUQTOI/") {
+    eduqtoiProject.link = "https://milann-lede.github.io/EDUQTOI/";
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log('Link for EDUQTOI updated in localStorage');
 }
 
 // Sélection du conteneur
