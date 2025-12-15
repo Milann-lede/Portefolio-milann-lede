@@ -336,7 +336,7 @@ window.resetToDefaults = function () {
                 stack: "HTML, CSS, JavaScript",
                 duration: "1 semaine",
                 description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
-                link: "https://les-jardins-de-marie.netlify.app/",
+                link: "https://milann-lede.github.io/les-jardins-de-marie/",
                 shortDesc: "Un projet réalisé en binôme pour un devoir scolaire.",
                 archived: false,
                 featured: true

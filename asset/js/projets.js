@@ -42,7 +42,7 @@ const defaultProjects = [
         stack: "HTML, CSS, JavaScript",
         duration: "1 semaine",
         description: "Un projet collaboratif réalisé dans le cadre d'un devoir scolaire. Nous avons travaillé sur la structure HTML et le style CSS pour créer une page web responsive.",
-        link: "https://les-jardins-de-marie.netlify.app/",
+        link: "https://milann-lede.github.io/les-jardins-de-marie/",
         shortDesc: "Un projet réalisé en binôme pour un devoir scolaire.",
         featured: true
     },
@@ -69,6 +69,14 @@ let projects = JSON.parse(localStorage.getItem('projects'));
 if (!projects || projects.length === 0) {
     projects = defaultProjects;
     localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+// FORCE UPDATE: Ensure the link is correct even if loaded from localStorage
+const jardinsProject = projects.find(p => p.id === 3);
+if (jardinsProject && jardinsProject.link !== "https://milann-lede.github.io/les-jardins-de-marie/") {
+    jardinsProject.link = "https://milann-lede.github.io/les-jardins-de-marie/";
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log('Link for Jardins de Marie updated in localStorage');
 }
 
 // Sélection du conteneur
