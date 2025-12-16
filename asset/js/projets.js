@@ -46,21 +46,6 @@ const defaultProjects = [
         shortDesc: "Un projet réalisé en binôme pour un devoir scolaire.",
         featured: true
     },
-    {
-        id: 4,
-        title: "Minifarm Manager",
-        category: "ia",
-        image: "./asset/image/Projet-farm-ia.png",
-        role: "Prompt Engineer / Concepteur",
-        context: "Projet généré avec l'IA Delia",
-        tools: "Delia (IA)",
-        stack: "Fullstack IA",
-        duration: "1 semaine",
-        description: "Un jeu de gestion de ferme complet où l'on peut acheter des parcelles, des véhicules et des graines pour gérer son entreprise agricole. Le jeu inclut un système de compte utilisateur pour sauvegarder sa progression.",
-        link: "https://mini-farm-manager.netlify.app/",
-        shortDesc: "Jeu de gestion de ferme créé avec l'IA Delia.",
-        featured: false
-    }
 ];
 
 // Load from localStorage or use default
@@ -91,6 +76,14 @@ if (tristanProject && tristanProject.link !== "https://milann-lede.github.io/Por
     tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/index.html";
     localStorage.setItem('projects', JSON.stringify(projects));
     console.log('Link for Tristan Project updated in localStorage');
+}
+
+// Remove IA project (id: 4) if present
+const iaProjectIndex = projects.findIndex(p => p.id === 4);
+if (iaProjectIndex !== -1) {
+    projects.splice(iaProjectIndex, 1);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log('IA Project removed from localStorage');
 }
 
 // Sélection du conteneur
