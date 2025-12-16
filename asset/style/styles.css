@@ -420,27 +420,7 @@ textarea:focus{
   align-items: center;
 }
 
-.profile-pic-wrap::after {
-  content: "📥 Télécharger mon CV";
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--card);
-  color: var(--text);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.75rem;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border: 1px solid rgba(255,255,255,.1);
-  pointer-events: none;
-}
 
-.profile-pic-wrap:hover::after {
-  opacity: 1;
-}
 
 .profile-pic {
   width: 3rem;
