@@ -27,7 +27,7 @@ const defaultProjects = [
         stack: "HTML5, CSS3, JavaScript, EmailJS",
         duration: "3 semaines",
         description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
-        link: "https://milann-lede.github.io/Portfolio-tristan/asset/page-low/low-character-art.html",
+        link: "https://milann-lede.github.io/Portfolio-tristan/index.html",
         shortDesc: "Un vrai portfolio pour présenter mes compétences.",
         featured: true
     },
@@ -87,8 +87,8 @@ if (eduqtoiProject && eduqtoiProject.link !== "https://milann-lede.github.io/EDU
 }
 
 const tristanProject = projects.find(p => p.id === 2);
-if (tristanProject && tristanProject.link !== "https://milann-lede.github.io/Portfolio-tristan/asset/page-low/low-character-art.html") {
-    tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/asset/page-low/low-character-art.html";
+if (tristanProject && tristanProject.link !== "https://milann-lede.github.io/Portfolio-tristan/index.html") {
+    tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/index.html";
     localStorage.setItem('projects', JSON.stringify(projects));
     console.log('Link for Tristan Project updated in localStorage');
 }
