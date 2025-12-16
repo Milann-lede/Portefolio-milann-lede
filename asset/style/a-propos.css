@@ -94,11 +94,9 @@ body {
   flex-shrink: 0;
 }
 
-.timeline-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: #eef2f7;
-    stroke-width: 2;
+.timeline-icon i {
+    font-size: 1.5rem; /* 24px equivalent */
+    color: #eef2f7;
 }
 
 /* Cartes de contenu */

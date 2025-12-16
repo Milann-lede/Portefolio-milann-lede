@@ -14,13 +14,28 @@
 
 <body>
 
-    <header class="admin-header">
+    <header class="header">
         <div class="container nav-wrap">
-            <div class="logo">Dashboard <span class="gradient">Admin</span></div>
-            <div class="admin-nav">
-                <a href="../index.html" class="nav-link">Retour au site</a>
-                <button id="logout-btn" class="btn small">Déconnexion</button>
+            <a href="../index.html" class="logo">Mon<span>Portfolio</span></a>
+
+            <nav class="nav" id="nav">
+                <a href="../index.html" class="nav-link">Accueil</a>
+                <a href="../a-propos.html" class="nav-link">À propos de moi</a>
+                <a href="../projets.html" class="nav-link">Projets</a>
+                <a href="../contact.html" class="btn primary">Contact</a>
+                <button id="logout-btn" class="btn small" style="margin-left: 1rem;">Déconnexion</button>
+            </nav>
+
+            <!-- Photo de profile -->
+            <div class="profile-pic-wrap">
+                <a href="../asset/image/milann-lede-cv-2025.pdf" download="CV_Milann.pdf" target="_blank">
+                    <img src="../asset/image/photo-de-milann-lede.jpeg" alt="Photo de Milann lede" class="profile-pic">
+                </a>
             </div>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -146,6 +161,7 @@
         </div>
     </div>
 
+    <script src="../asset/js/script.js"></script>
     <script src="../asset/js/projets.js"></script>
     <script src="admin.js"></script>
 </body>
