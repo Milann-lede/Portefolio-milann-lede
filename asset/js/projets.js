@@ -73,7 +73,7 @@ if (eduqtoiProject && eduqtoiProject.link !== "https://milann-lede.github.io/EDU
 
 const tristanProject = projects.find(p => p.id === 2);
 if (tristanProject && tristanProject.link !== "https://milann-lede.github.io/Portfolio-tristan/index.html") {
-    tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/index.html";
+    tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/";
     localStorage.setItem('projects', JSON.stringify(projects));
     console.log('Link for Tristan Project updated in localStorage');
 }
