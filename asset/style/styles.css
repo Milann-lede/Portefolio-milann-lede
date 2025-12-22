@@ -236,6 +236,7 @@ body{
 }
 .btn.primary{
   background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+  background-origin: border-box;
   color:#0b0b0f; 
   font-weight:700;
 }
@@ -441,6 +442,7 @@ textarea:focus{
   right:1.25rem;
   z-index:100;
   background:linear-gradient(135deg,var(--accent-start),var(--accent-end));
+  background-origin: border-box;
   color:#0b0b0f; 
   font-weight:700;
 }

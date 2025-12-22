@@ -7,7 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
     initBurgerMenu();
     initContactForm();
     initCarousel();
+    registerServiceWorker();
 });
+
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker enregistré avec succès:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Échec de l\'enregistrement du Service Worker:', error);
+                });
+        });
+    }
+}
 
 function initRevealAnimations() {
     const cards = document.querySelectorAll('.card');
