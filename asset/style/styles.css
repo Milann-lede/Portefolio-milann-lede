@@ -3,7 +3,7 @@
   --bg:#0e0f12;
   --bg-2:#12131a;
   --text:#eef2f7;
-  --muted:#b8c0cc;
+  --muted:#cfd9e9;
   --card:#151823;
   --accent-start:#ff62c0;
   --accent-end:#7a5cff;
@@ -348,6 +348,9 @@ body{
 }
 .contact-info .coords li{
   margin:0.625rem 0;
+}
+.contact-info .coords li strong {
+  margin-right: 10px;
 }
 .contact-info a{
   color:var(--text);
