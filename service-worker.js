@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-cache-v1';
+const CACHE_NAME = 'portfolio-cache-v11';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -17,11 +17,14 @@ const ASSETS_TO_CACHE = [
     './asset/image/js-logo-2.webp',
     './asset/image/photo-de-milann-lede.jpeg',
     './asset/image/portfolio-tristan.png',
-    './asset/image/projet-ecole.png'
+    './asset/image/projet-ecole.png',
+    './asset/image/CV_milann_lede_portfolio.pdf'
 ];
 
 // Installation : Mise en cache des ressources
 self.addEventListener('install', (event) => {
+    // Force le nouveau service worker à s'activer immédiatement
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
@@ -43,6 +46,9 @@ self.addEventListener('activate', (event) => {
                     }
                 })
             );
+        }).then(() => {
+            // Force le service worker à contrôler les pages immédiatement
+            return self.clients.claim();
         })
     );
 });
@@ -61,6 +67,11 @@ self.addEventListener('fetch', (event) => {
                     (response) => {
                         // Vérifie si la réponse est valide
                         if (!response || response.status !== 200 || response.type !== 'basic') {
+                            return response;
+                        }
+
+                        // Ne pas mettre en cache les requêtes qui ne sont pas http/https (ex: extensions chrome)
+                        if (!event.request.url.startsWith('http')) {
                             return response;
                         }
 
