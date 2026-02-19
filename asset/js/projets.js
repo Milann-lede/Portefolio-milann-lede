@@ -9,7 +9,7 @@ const defaultProjects = [
         role: "Fondateur & Développeur",
         context: "Agence Web Professionnelle",
         tools: "VS Code, Figma",
-        stack: "HTML, CSS, JavaScript",
+        stack: "HTML5, CSS3, JavaScript, LocalStorage, Service Worker (PWA), EmailJS",
         duration: "En cours",
         description: "Création d'une agence web spécialisée dans la conception de sites modernes et performants pour les entreprises locales. Le site met en avant les services proposés et les réalisations de l'agence.",
         link: "https://modernweb.fr",
