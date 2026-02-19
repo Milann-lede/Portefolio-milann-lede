@@ -2,6 +2,21 @@
 
 const defaultProjects = [
     {
+        id: 5,
+        title: "Modern Web",
+        category: "perso",
+        image: "./asset/image/modern-web.png",
+        role: "Fondateur & Développeur",
+        context: "Agence Web Professionnelle",
+        tools: "VS Code, Figma",
+        stack: "HTML, CSS, JavaScript",
+        duration: "En cours",
+        description: "Création d'une agence web spécialisée dans la conception de sites modernes et performants pour les entreprises locales. Le site met en avant les services proposés et les réalisations de l'agence.",
+        link: "https://modernweb.fr",
+        shortDesc: "Agence web spécialisée dans la création de sites modernes.",
+        featured: true
+    },
+    {
         id: 1,
         title: "ÉDUQTOI",
         category: "scolaire",
@@ -27,9 +42,9 @@ const defaultProjects = [
         stack: "HTML5, CSS3, JavaScript, EmailJS",
         duration: "3 semaines",
         description: "Création d'un portfolio personnel pour présenter mes compétences et mes réalisations. Le site met l'accent sur le design et l'expérience utilisateur avec des animations fluides.",
-        link: "https://milann-lede.github.io/Portfolio-tristan/",
+        link: "https://portfolio-tristan-seven.vercel.app/",
         shortDesc: "Un vrai portfolio pour présenter mes compétences.",
-        featured: true
+        featured: false
     },
     {
         id: 3,
@@ -46,6 +61,21 @@ const defaultProjects = [
         shortDesc: "Un projet réalisé en binôme pour un devoir scolaire.",
         featured: true
     },
+    {
+        id: 4,
+        title: "Mini Arcade JS",
+        category: "scolaire",
+        image: "./asset/image/AC.jpeg",
+        role: "Développeur",
+        context: "Projet scolaire",
+        tools: "VS Code, GitHub",
+        stack: "HTML, CSS, JavaScript",
+        duration: "1 semaine",
+        description: "Une collection de mini-jeux d'arcade développés en JavaScript pur. Ce projet avait pour but d'approfondir la maîtrise du langage JavaScript sans framework.",
+        link: "https://milann-lede.github.io/Mini-Arcade-JS/",
+        shortDesc: "Mini-jeux d'arcade pour apprendre le JS.",
+        featured: true
+    }
 ];
 
 // Load from localStorage or use default
@@ -71,19 +101,57 @@ if (eduqtoiProject && eduqtoiProject.link !== "https://milann-lede.github.io/EDU
     console.log('Link for EDUQTOI updated in localStorage');
 }
 
+// Force ensure Modern Web is at the beginning
+const mwIndex = projects.findIndex(p => p.id === 5);
+if (mwIndex > 0) {
+    const [mwItem] = projects.splice(mwIndex, 1);
+    projects.unshift(mwItem);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log('Modern Web moved to the beginning of the list');
+}
+
 const tristanProject = projects.find(p => p.id === 2);
-if (tristanProject && tristanProject.link !== "https://milann-lede.github.io/Portfolio-tristan/") {
-    tristanProject.link = "https://milann-lede.github.io/Portfolio-tristan/";
+if (tristanProject && tristanProject.link !== "https://portfolio-tristan-seven.vercel.app/") {
+    tristanProject.link = "https://portfolio-tristan-seven.vercel.app/";
     localStorage.setItem('projects', JSON.stringify(projects));
     console.log('Link for Tristan Project updated in localStorage');
 }
 
-// Remove IA project (id: 4) if present
-const iaProjectIndex = projects.findIndex(p => p.id === 4);
-if (iaProjectIndex !== -1) {
-    projects.splice(iaProjectIndex, 1);
+// Force add Modern Web if missing
+const modernWebDef = defaultProjects.find(p => p.id === 5);
+let modernWebProject = projects.find(p => p.id === 5);
+
+if (!modernWebProject) {
+    // Add to the beginning of the array
+    projects.unshift(modernWebDef);
     localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('IA Project removed from localStorage');
+    console.log('Modern Web added to localStorage');
+} else {
+    // Force update properties
+    if (JSON.stringify(modernWebProject) !== JSON.stringify(modernWebDef)) {
+        Object.assign(modernWebProject, modernWebDef);
+        localStorage.setItem('projects', JSON.stringify(projects));
+        console.log('Modern Web updated in localStorage');
+    }
+}
+
+// Force add Mini Arcade JS if missing
+const miniArcadeDef = defaultProjects.find(p => p.id === 4);
+let miniArcadeProject = projects.find(p => p.id === 4);
+
+if (!miniArcadeProject) {
+    projects.push(miniArcadeDef);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log('Mini Arcade JS added to localStorage');
+} else {
+    // Force update properties to match defaultProjects (standardize data)
+    if (JSON.stringify(miniArcadeProject) !== JSON.stringify(miniArcadeDef)) {
+        Object.assign(miniArcadeProject, miniArcadeDef);
+        // Ensure archived flag is removed if present from old data
+        delete miniArcadeProject.archived;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        console.log('Mini Arcade JS updated in localStorage to match defaults');
+    }
 }
 
 // Sélection du conteneur

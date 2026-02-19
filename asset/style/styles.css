@@ -309,11 +309,11 @@ body{
   border-radius:0.75rem; 
   overflow:hidden;
   border:1px solid rgba(255,255,255,.08); 
-  transition:transform 0.3s, box-shadow 0.3s;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .card:hover{
-  transform:translateY(-0.3125rem);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 .card .thumb{
   width:100%; 
