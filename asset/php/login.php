@@ -1,19 +1,26 @@
 <?php
-session_start();
 
-$error = '';
+    require 'header.php';
+  
+if(isset($_POST['mail']))
+{
+    $req = $bdd->prepare('SELECT * FROM utilisateur WHERE mail = ?');
+    $req->execute([$_POST['mail']]);
+    $user = $req->fetch();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if ($username === 'admin' && $password === 'admin') {
-        $_SESSION['logged_in'] = true;
-        header('Location: admin.php');
-        exit;
-    } else {
-        $error = 'Identifiants incorrects.';
+  if (password_verify($_POST['password'], $user['mdp']))
+    {
+      echo 'le mot de passe et bon';
+      $_SESSION['conecter'] = true;
+      header('location:admin.php'); 
+      die;
     }
+
+  else
+    {
+      echo ' le mot de passe et faux';
+    }
+
 }
 ?>
 <!DOCTYPE html>
@@ -25,13 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <h1>Connexion</h1>
 
-  <?php if ($error): ?>
-    <p><?= htmlspecialchars($error) ?></p>
-  <?php endif; ?>
-
   <form method="POST">
-    <label>Nom d'utilisateur<br>
-      <input type="text" name="username" required autofocus>
+    <label>mail d'utilisateur<br>
+      <input type="text" name="mail" required autofocus>
     </label>
     <br><br>
     <label>Mot de passe<br>
