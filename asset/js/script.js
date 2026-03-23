@@ -7,22 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initBurgerMenu();
     initContactForm();
     initCarousel();
-    registerServiceWorker();
 });
 
-function registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker enregistré avec succès:', registration.scope);
-                })
-                .catch(error => {
-                    console.log('Échec de l\'enregistrement du Service Worker:', error);
-                });
-        });
-    }
-}
 
 function initRevealAnimations() {
     const cards = document.querySelectorAll('.card');
@@ -129,7 +115,7 @@ function initCarousel() {
 
             if (featuredProjects.length > 0) {
                 slidesContainer.innerHTML = featuredProjects.map(p => `
-                    <div class="carousel-slide" onclick="window.location.href='./projets.html?id=${p.id}'" style="cursor: pointer;">
+                    <div class="carousel-slide" onclick="window.location.href='/asset/html/projets.html?id=${p.id}'" style="cursor: pointer;">
                         <img src="${p.image}" alt="${p.title}" class="slide-image">
                         <div class="slide-content">
                             <h3>${p.title}</h3>
