@@ -628,12 +628,6 @@ textarea:focus{
   margin: 0;
 }
 
-.footer-admin-link {
-  color: rgba(255,255,255,0.1);
-  text-decoration: none;
-  font-size: 0.8rem;
-}
-
 /* Index page contact section adjustment */
 #contact .coords {
   margin-top: 2rem;

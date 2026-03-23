@@ -139,7 +139,7 @@ function initCarousel() {
                 `).join('');
             } else {
                 // Optional: Show message if no featured projects
-                slidesContainer.innerHTML = '<div class="carousel-slide"><div class="slide-content"><h3>Aucun projet phare</h3><p>Sélectionnez des projets phares dans l\'admin.</p></div></div>';
+                slidesContainer.innerHTML = '<div class="carousel-slide"><div class="slide-content"><h3>Aucun projet phare</h3><p>Aucun projet à afficher.</p></div></div>';
             }
         }
     }

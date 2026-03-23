@@ -9,7 +9,7 @@ const defaultProjects = [
         role: "Fondateur & Développeur",
         context: "Agence Web Professionnelle",
         tools: "VS Code, Figma",
-        stack: "HTML5, CSS3, JavaScript, LocalStorage, Service Worker (PWA), EmailJS",
+        stack: "HTML5, CSS3, JavaScript, ",
         duration: "En cours",
         description: "Création d'une agence web spécialisée dans la conception de sites modernes et performants pour les entreprises locales. Le site met en avant les services proposés et les réalisations de l'agence.",
         link: "https://modernweb.fr",
@@ -78,81 +78,7 @@ const defaultProjects = [
     }
 ];
 
-// Load from localStorage or use default
-let projects = JSON.parse(localStorage.getItem('projects'));
-
-if (!projects || projects.length === 0) {
-    projects = defaultProjects;
-    localStorage.setItem('projects', JSON.stringify(projects));
-}
-
-// FORCE UPDATE: Ensure the link is correct even if loaded from localStorage
-const jardinsProject = projects.find(p => p.id === 3);
-if (jardinsProject && jardinsProject.link !== "https://milann-lede.github.io/les-jardins-de-marie/") {
-    jardinsProject.link = "https://milann-lede.github.io/les-jardins-de-marie/";
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Link for Jardins de Marie updated in localStorage');
-}
-
-const eduqtoiProject = projects.find(p => p.id === 1);
-if (eduqtoiProject && eduqtoiProject.link !== "https://milann-lede.github.io/EDUQTOI/") {
-    eduqtoiProject.link = "https://milann-lede.github.io/EDUQTOI/";
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Link for EDUQTOI updated in localStorage');
-}
-
-// Force ensure Modern Web is at the beginning
-const mwIndex = projects.findIndex(p => p.id === 5);
-if (mwIndex > 0) {
-    const [mwItem] = projects.splice(mwIndex, 1);
-    projects.unshift(mwItem);
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Modern Web moved to the beginning of the list');
-}
-
-const tristanProject = projects.find(p => p.id === 2);
-if (tristanProject && tristanProject.link !== "https://portfolio-tristan-seven.vercel.app/") {
-    tristanProject.link = "https://portfolio-tristan-seven.vercel.app/";
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Link for Tristan Project updated in localStorage');
-}
-
-// Force add Modern Web if missing
-const modernWebDef = defaultProjects.find(p => p.id === 5);
-let modernWebProject = projects.find(p => p.id === 5);
-
-if (!modernWebProject) {
-    // Add to the beginning of the array
-    projects.unshift(modernWebDef);
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Modern Web added to localStorage');
-} else {
-    // Force update properties
-    if (JSON.stringify(modernWebProject) !== JSON.stringify(modernWebDef)) {
-        Object.assign(modernWebProject, modernWebDef);
-        localStorage.setItem('projects', JSON.stringify(projects));
-        console.log('Modern Web updated in localStorage');
-    }
-}
-
-// Force add Mini Arcade JS if missing
-const miniArcadeDef = defaultProjects.find(p => p.id === 4);
-let miniArcadeProject = projects.find(p => p.id === 4);
-
-if (!miniArcadeProject) {
-    projects.push(miniArcadeDef);
-    localStorage.setItem('projects', JSON.stringify(projects));
-    console.log('Mini Arcade JS added to localStorage');
-} else {
-    // Force update properties to match defaultProjects (standardize data)
-    if (JSON.stringify(miniArcadeProject) !== JSON.stringify(miniArcadeDef)) {
-        Object.assign(miniArcadeProject, miniArcadeDef);
-        // Ensure archived flag is removed if present from old data
-        delete miniArcadeProject.archived;
-        localStorage.setItem('projects', JSON.stringify(projects));
-        console.log('Mini Arcade JS updated in localStorage to match defaults');
-    }
-}
+const projects = defaultProjects;
 
 // Sélection du conteneur
 const projectsGrid = document.querySelector(".projects-grid-page");
