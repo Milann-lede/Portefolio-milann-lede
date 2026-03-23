@@ -74,7 +74,7 @@ const defaultProjects = [
         description: "Une collection de mini-jeux d'arcade développés en JavaScript pur. Ce projet avait pour but d'approfondir la maîtrise du langage JavaScript sans framework.",
         link: "https://milann-lede.github.io/Mini-Arcade-JS/",
         shortDesc: "Mini-jeux d'arcade pour apprendre le JS.",
-        featured: true
+        featured: false
     }
 ];
 
