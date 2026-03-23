@@ -3,7 +3,7 @@
 const defaultProjects = [
     {
         id: 5,
-        title: "Modern Web",
+        title: "ModernWeb",
         category: "perso",
         image: "./asset/image/modern-web.png",
         role: "Fondateur & Développeur",

@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Status](https://img.shields.io/badge/status-Active-success.svg)
 
-Bienvenue sur le dépôt de mon **Portfolio Personnel**. Ce projet est une vitrine de mes compétences et réalisations en tant que Développeur Web. Il a évolué d'un site statique vers une **Single Page Application (SPA)** dynamique administrable.
+Bienvenue sur le dépôt de mon **Portfolio Personnel**. Ce projet est une vitrine de mes compétences et réalisations en tant que Développeur Web.
 
 ---
 
@@ -14,14 +14,6 @@ Bienvenue sur le dépôt de mon **Portfolio Personnel**. Ce projet est une vitri
 *   **Design Moderne & Responsive** : Interface soignée, animations fluides et adaptation parfaite sur mobile/tablette.
 *   **Deep Linking** : Les projets mis en avant sur l'accueil redirigent directement vers leurs détails.
 *   **Formulaire de Contact** : Intégration fonctionnelle avec **EmailJS**.
-
-### 🛠️ Panel Administrateur (Nouveau !)
-Gérez le contenu du site sans toucher une ligne de code grâce au nouveau Dashboard sécurisé.
-*   **Ajout de Projets** : Formulaire complet pour ajouter de nouvelles réalisations.
-*   **Nouvelle Catégorie "IA" 🤖** : Créez et filtrez spécifiquement les projets liés à l'Intelligence Artificielle.
-*   **Mode "Projet Phare" ⭐** : Sélectionnez les projets à afficher dans le carousel de l'accueil.
-*   **Système d'Archives** : Supprimez (archivez) des projets et restaurez-les si besoin (Soft Delete).
-*   **Persistance** : Toutes les données sont sauvegardées localement dans votre navigateur (`localStorage`).
 
 ---
 
@@ -50,19 +42,6 @@ Ce projet ne nécessite **aucune installation serveur** (Node.js, PHP, etc.). Il
 
 ---
 
-## 🔐 Accès Admin
-
-Pour accéder au panel d'administration et gérer les projets :
-
-1.  Cliquez sur le lien **"Admin"** caché tout en bas à droite du footer.
-2.  Connectez-vous avec les identifiants de démonstration :
-    *   **Utilisateur** : `Milann`
-    *   **Mot de passe** : `1234`
-
-> **Note :** Les données étant stockées dans le `localStorage`, si vous changez de navigateur ou videz le cache, les projets ajoutés manuellement disparaîtront (mais les projets par défaut peuvent être restaurés en un clic).
-
----
-
 ## 📂 Structure du Projet
 
 ```
@@ -71,10 +50,6 @@ Pour accéder au panel d'administration et gérer les projets :
 ├── 📄 projets.html        # Liste des projets
 ├── 📄 a-propos.html       # CV et parcours
 ├── 📄 contact.html        # Formulaire de contact
-├── 📁 admin/              # Interface d'administration
-│   ├── 📄 login.html
-│   ├── 📄 dashboard.html
-│   └── 📄 admin.js
 └── 📁 asset/
     ├── 📁 style/          # Feuilles de style CSS
     ├── 📁 JS/             # Scripts (projets.js, scrip.js)
