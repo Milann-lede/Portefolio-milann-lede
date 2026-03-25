@@ -1,3 +1,7 @@
+<?php
+// Connexion BDD — nécessaire pour la carte "Spécialisé en" dans le hero
+require './asset/php/header.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,10 +30,10 @@
       <a href="#hero" class="logo">Mon<span>Portfolio</span></a>
 
       <nav class="nav" id="nav">
-        <a href="./index.html" class="nav-link">Accueil</a>
-        <a href="./asset/html/a-propos.html" class="nav-link">À propos de moi</a>
-        <a href="./asset/html/projets.html" class="nav-link">Projets</a>
-        <a href="./asset/html/contact.html" class="btn primary">Contact</a>
+        <a href="./index.php" class="nav-link">Accueil</a>
+        <a href="./asset/html/a-propos.php" class="nav-link">À propos de moi</a>
+        <a href="./asset/html/projets.php" class="nav-link">Projets</a>
+        <a href="./asset/html/contact.php" class="btn primary">Contact</a>
       </nav>
 
       <!-- Photo de profil -->
@@ -57,46 +61,30 @@
           <strong>JavaScript</strong>.
         </p>
       </div>
+      <?php
+      // Récupère les 6 spécialités les plus élevées depuis la BDD
+      $result      = $bdd->query('SELECT * FROM Specialise ORDER BY pourcentage DESC LIMIT 6');
+      $specialites = $result->fetchAll();
+      ?>
       <div class="hero-art">
         <div class="card-3d reveal">
           <div class="card-3d__inner">
-            <div class="dots"></div>
-            <div class="lines"></div>
-            <div class="glow"></div>
             <h3 class="titre-header">Spécialisé en</h3>
-
-
             <div class="tech-logos">
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-html5 tech-icon"></i>
-                <p class="gradient">HTML</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-css3-alt tech-icon"></i>
-                <p class="gradient">CSS</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-js tech-icon"></i>
-                <p class="gradient">JavaScript</p>
-              </div>
-              <div class="break"></div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-git-alt tech-icon"></i>
-                <p class="gradient">git</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-github tech-icon"></i>
-                <p class="gradient">github</p>
-              </div>
-              <div class="tech-logo-item">
-                <svg class="tech-icon fa-vscode" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                  width="1em" height="1em" fill="currentColor">
-                  <title>Visual Studio Code</title>
-                  <path
-                    d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" />
-                </svg>
-                <p class="gradient">VS Code</p>
-              </div>
+              <?php foreach ($specialites as $s): // Boucle : une icône par spécialité ?>
+                <div class="tech-logo-item">
+                  <?php if ($s['img'] === 'vscode'): // SVG car VS Code n'est pas dans Font Awesome ?>
+                    <svg class="tech-icon fa-vscode" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor">
+                      <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+                    </svg>
+                  <?php elseif (substr($s['img'], 0, 3) === 'fa-'): // Icône Font Awesome ?>
+                    <i class="<?= $s['img'] ?> tech-icon"></i>
+                  <?php else: // Image uploadée via l'admin ?>
+                    <img src="./asset/image/<?= $s['img'] ?>" class="tech-icon" style="width:7.5rem;height:7.5rem;object-fit:contain">
+                  <?php endif; ?>
+                  <p class="gradient"><?= $s['nom'] ?></p>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
@@ -151,7 +139,7 @@
 
       </div>
       <div class="more-info-wrapper">
-        <a href="a-propos.html" class="btn primary">En savoir plus</a>
+        <a href="./asset/html/a-propos.php" class="btn primary">En savoir plus</a>
       </div>
     </div>
   </section>
@@ -230,7 +218,6 @@
   <footer class="footer">
     <div class="container footer-container">
       <p class="footer-text">© 2025 — Portfolio de Milann</p>
-      <a href="http://localhost:8080/asset/php/login.php" class="btn primary" style="font-size:0.75rem;padding:0.4rem 0.9rem;">Admin</a>
     </div>
   </footer>
 

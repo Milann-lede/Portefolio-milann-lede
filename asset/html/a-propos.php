@@ -1,3 +1,23 @@
+<?php
+// Connexion BDD (session non requise — page publique)
+require '../php/header.php';
+
+// Récupère les textes de la table contenu et les stocke dans un tableau [identifient => contenu]
+$rows = $bdd->query('SELECT * FROM contenu')->fetchAll();
+$textes = [];
+foreach ($rows as $r) {
+    // La clé du tableau = identifiant de la section, la valeur = le texte
+    $textes[$r['identifient']] = $r['contenu'];
+}
+
+// Récupère les compétences triées par ordre d'affichage
+$result = $bdd->query('SELECT * FROM mes_competences ORDER BY ordre ASC');
+$competences = $result->fetchAll();
+
+// Récupère le parcours trié par ordre d'affichage
+$result2 = $bdd->query('SELECT * FROM mon_parcours ORDER BY ordre ASC');
+$parcours = $result2->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -24,10 +44,10 @@
       <a href="#hero" class="logo">Mon<span>Portfolio</span></a>
 
       <nav class="nav" id="nav">
-        <a href="../../index.html" class="nav-link">Accueil</a>
-        <a href="./a-propos.html" class="nav-link">À propos de moi</a>
-        <a href="./projets.html" class="nav-link">Projets</a>
-        <a href="./contact.html" class="btn primary">Contact</a>
+        <a href="../../index.php" class="nav-link">Accueil</a>
+        <a href="./a-propos.php" class="nav-link">À propos de moi</a>
+        <a href="./projets.php" class="nav-link">Projets</a>
+        <a href="./contact.php" class="btn primary">Contact</a>
       </nav>
 
       <!-- Photo de profil -->
@@ -54,46 +74,30 @@
           <strong>JavaScript</strong>.
         </p>
       </div>
+      <?php
+      // Récupère les 6 spécialités les plus élevées depuis la BDD
+      $result      = $bdd->query('SELECT * FROM Specialise ORDER BY pourcentage DESC LIMIT 6');
+      $specialites = $result->fetchAll();
+      ?>
       <div class="hero-art">
         <div class="card-3d reveal">
           <div class="card-3d__inner">
-            <div class="dots"></div>
-            <div class="lines"></div>
-            <div class="glow"></div>
             <h3 class="titre-header">Spécialisé en</h3>
-
-
             <div class="tech-logos">
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-html5 tech-icon"></i>
-                <p class="gradient">HTML</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-css3-alt tech-icon"></i>
-                <p class="gradient">CSS</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-js tech-icon"></i>
-                <p class="gradient">JavaScript</p>
-              </div>
-              <div class="break"></div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-git-alt tech-icon"></i>
-                <p class="gradient">git</p>
-              </div>
-              <div class="tech-logo-item">
-                <i class="fa-brands fa-github tech-icon"></i>
-                <p class="gradient">github</p>
-              </div>
-              <div class="tech-logo-item">
-                <svg class="tech-icon fa-vscode" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                  width="1em" height="1em" fill="currentColor">
-                  <title>Visual Studio Code</title>
-                  <path
-                    d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" />
-                </svg>
-                <p class="gradient">VS Code</p>
-              </div>
+              <?php foreach ($specialites as $s): ?>
+                <div class="tech-logo-item">
+                  <?php if ($s['img'] === 'vscode'): ?>
+                    <svg class="tech-icon fa-vscode" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor">
+                      <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+                    </svg>
+                  <?php elseif (substr($s['img'], 0, 3) === 'fa-'): ?>
+                    <i class="<?= $s['img'] ?> tech-icon"></i>
+                  <?php else: ?>
+                    <img src="../image/<?= $s['img'] ?>" class="tech-icon" style="width:7.5rem;height:7.5rem;object-fit:contain">
+                  <?php endif; ?>
+                  <p class="gradient"><?= $s['nom'] ?></p>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
@@ -107,13 +111,14 @@
 
     <div class="timeline">
 
-      <!-- Row 1: Qui je suis (Left) -->
+      <!-- Bloc "Qui je suis" -->
       <div class="timeline-row">
         <div class="timeline-col left">
           <div class="content">
             <h2>Qui je suis</h2>
-            <p>Je suis un développeur web passionné avec une soif insatiable d'apprendre et de créer. J'aime transformer
-              des idées complexes en applications web élégantes, intuitives et performantes.</p>
+            <!-- nl2br() convertit les sauts de ligne (\n) en balises <br> pour l'affichage HTML -->
+            <!-- ?? '' retourne une chaîne vide si la clé n'existe pas dans le tableau -->
+            <p><?= nl2br($textes['Qui je suis'] ?? '') ?></p>
           </div>
         </div>
         <div class="timeline-icon">
@@ -122,7 +127,7 @@
         <div class="timeline-col right"></div>
       </div>
 
-      <!-- Row 2: Parcours (Right)-->
+      <!-- Bloc "Mon Parcours" -->
       <div class="timeline-row">
         <div class="timeline-col left"></div>
         <div class="timeline-icon">
@@ -132,81 +137,39 @@
           <div class="content">
             <h2>Mon Parcours</h2>
             <ul>
+              <?php foreach ($parcours as $p): // Boucle : affiche chaque entrée du parcours ?>
               <li>
-                <strong>2025 - 2028 : Efficom Lille</strong><br>
-                Bachelor informatique
+                <!-- Affiche la date/établissement en gras -->
+                <strong><?= $p['date'] ?></strong><br>
+                <!-- nl2br() pour conserver les sauts de ligne saisis dans l'admin -->
+                <?= nl2br($p['info']) ?>
               </li>
-
-              <li>
-                <strong>2022 - 2025 : Lycée Arthur RIMBAUD</strong><br>
-                Section Réseaux Informatiques et Systèmes Communicants<br>
-                Ribécourt - 60
-              </li>
-
-              <li>
-                <strong>2021 - 2022 : Collège JEAN-PAUL II</strong><br>
-                Compiègne - 60
-              </li>
-
-              <li>
-                <strong>2012 - 2021 : Lycée Français de Shanghai</strong><br>
-                Shanghai<br>
-                Chine
-              </li>
+              <?php endforeach; // Fin boucle parcours ?>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Row 3: Compétences (Left) -->
+      <!-- Bloc "Mes compétences" -->
       <div class="timeline-row">
         <div class="timeline-col left">
           <div class="content">
             <h2>Mes compétences</h2>
             <div class="skills-container">
-              <!-- HTML5 -->
+              <?php foreach ($competences as $comp): // Boucle : affiche chaque compétence avec sa barre de niveau ?>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name">HTML5</span>
-                  <span class="skill-percentage">75%</span>
+                  <!-- Affiche le nom de la compétence -->
+                  <span class="skill-name"><?= $comp['nom'] ?></span>
+                  <!-- Affiche le pourcentage -->
+                  <span class="skill-percentage"><?= $comp['pourcentage'] ?>%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 75%;"></div>
+                  <!-- La largeur de la barre CSS = le pourcentage stocké en BDD -->
+                  <div class="skill-progress" style="width: <?= $comp['pourcentage'] ?>%;"></div>
                 </div>
               </div>
-
-              <!-- CSS3 -->
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">CSS3</span>
-                  <span class="skill-percentage">75%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 75%;"></div>
-                </div>
-              </div>
-
-              <!-- JavaScript -->
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">JavaScript</span>
-                  <span class="skill-percentage">30%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 30%;"></div>
-                </div>
-              </div>
-
-              <!-- Git & GitHub -->
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Git & GitHub</span>
-                  <span class="skill-percentage">80%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%;"></div>
-                </div>
-              </div>
+              <?php endforeach; // Fin boucle compétences ?>
             </div>
           </div>
         </div>
@@ -216,7 +179,7 @@
         <div class="timeline-col right"></div>
       </div>
 
-      <!-- Row 4: Hobbies (Right) -->
+      <!-- Bloc "Mes hobbies" -->
       <div class="timeline-row">
         <div class="timeline-col left"></div>
         <div class="timeline-icon">
@@ -225,13 +188,13 @@
         <div class="timeline-col right">
           <div class="content">
             <h2>Mes hobbies</h2>
-            <p>En dehors du code, je suis passionné par le hockey sur glace, la cuisine, l'automobile et le
-              développement web. Ces activités m'aident à rester créatif et à garder un équilibre sain.</p>
+            <!-- Affiche le texte des hobbies depuis la BDD, ?? '' évite une erreur si vide -->
+            <p><?= nl2br($textes['Mes hobbies'] ?? '') ?></p>
           </div>
         </div>
       </div>
 
-      <!-- Row 5: CV (Left) -->
+      <!-- Bloc "Mon CV" -->
       <div class="timeline-row">
         <div class="timeline-col left">
           <div class="content">

@@ -1,11 +1,6 @@
-const EMAILJS_PUBLIC_KEY = 'MHWfCFxbSaIfZJ-xN';
-const EMAILJS_SERVICE_ID = 'service_jh1yade';
-const EMAILJS_TEMPLATE_ID = 'template_4g6rna6';
-
 document.addEventListener('DOMContentLoaded', () => {
     initRevealAnimations();
     initBurgerMenu();
-    initContactForm();
     initCarousel();
 });
 
@@ -41,67 +36,6 @@ function initBurgerMenu() {
     });
 }
 
-function initContactForm() {
-    const contactForm = document.querySelector('#contact-form');
-    if (!contactForm) {
-        return;
-    }
-
-    if (typeof emailjs === 'undefined') {
-        console.warn('EmailJS is not loaded.');
-        return;
-    }
-
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-
-    const formStatus = document.querySelector('#form-status');
-    const nameInput = document.querySelector('#name');
-    const emailInput = document.querySelector('#email');
-    const messageInput = document.querySelector('#message');
-
-    contactForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        updateFormStatus(formStatus, '⏳ Envoi en cours...', 'var(--muted)');
-
-        const formData = {
-            name: nameInput?.value.trim() ?? '',
-            email: emailInput?.value.trim() ?? '',
-            message: messageInput?.value.trim() ?? ''
-        };
-
-        try {
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData);
-            updateFormStatus(formStatus, '✅ Message envoyé avec succès', '#4ade80');
-            contactForm.reset();
-        } catch (error) {
-            console.error('FAILED...', error);
-            updateFormStatus(formStatus, 'Erreur lors de l\'envoi. Veuillez réessayer.', '#f87171');
-        } finally {
-            scheduleStatusClear(formStatus);
-        }
-    });
-}
-
-function updateFormStatus(element, message, color) {
-    if (!element) {
-        return;
-    }
-
-    element.textContent = message;
-    if (color) {
-        element.style.color = color;
-    }
-}
-
-function scheduleStatusClear(element) {
-    if (!element) {
-        return;
-    }
-
-    setTimeout(() => {
-        element.textContent = '';
-    }, 5000);
-}
 
 function initCarousel() {
     // 1. Render Slides from LocalStorage
@@ -115,7 +49,7 @@ function initCarousel() {
 
             if (featuredProjects.length > 0) {
                 slidesContainer.innerHTML = featuredProjects.map(p => `
-                    <div class="carousel-slide" onclick="window.location.href='/asset/html/projets.html?id=${p.id}'" style="cursor: pointer;">
+                    <div class="carousel-slide" onclick="window.location.href='/asset/html/projets.php?id=${p.id}'" style="cursor: pointer;">
                         <img src="${p.image}" alt="${p.title}" class="slide-image">
                         <div class="slide-content">
                             <h3>${p.title}</h3>
