@@ -2,6 +2,13 @@
 // Connexion BDD (page publique)
 require '../php/header.php';
 
+$ch = curl_init('https://api.github.com/users/milann-lede/repos');
+$header = 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0';
+curl_setopt($ch, CURLOPT_USERAGENT, $header);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+$projetsGit = json_decode($result, true);
+
 // Requête SQL : récupère tous les projets avec leur catégorie (LEFT JOIN = lien entre les tables)
 $result = $bdd->query('
     SELECT p.*, c.name AS categorie
@@ -40,6 +47,7 @@ $projets = $result->fetchAll();
                 <a href="../../index.php" class="nav-link">Accueil</a>
                 <a href="./a-propos.php" class="nav-link">À propos de moi</a>
                 <a href="./projets.php" class="nav-link active">Projets</a>
+                <a href="./recomendation.php" class="nav-link">recomendation</a>
                 <a href="./contact.php" class="btn primary">Contact</a>
             </nav>
 
@@ -107,9 +115,19 @@ $projets = $result->fetchAll();
                     <button class="filter-btn" data-filter="perso">Personnel</button>
                     <button class="filter-btn" data-filter="stage">Stage</button>
                     <button class="filter-btn" data-filter="ia">IA</button>
+                    <button class="filter-btn" data-filter="github"><i class="fa-brands fa-github"></i> GitHub</button>
                 </div>
 
                 <div class="projects-grid-page"></div>
+
+                <div id="github-repos" style="display:none">
+                    <?php foreach ($projetsGit ?? [] as $projet): ?>
+                    <a class="github-repo-card" href="<?= htmlspecialchars($projet['html_url']) ?>" target="_blank" rel="noopener noreferrer">
+                        <span class="github-repo-name"><?= htmlspecialchars($projet['full_name']) ?></span>
+                        <span class="github-repo-date"><?= date('d/m/Y', strtotime($projet['created_at'])) ?></span>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </section>
     </main>
@@ -129,6 +147,7 @@ $projets = $result->fetchAll();
 
     <script src="../js/script.js"></script>
     <script src="../js/projets.js"></script>
+    
 
     <!-- Injecte les projets BDD après que projets.js ait déclaré defaultProjects -->
     <script>

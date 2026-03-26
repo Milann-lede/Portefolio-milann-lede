@@ -632,3 +632,35 @@ textarea:focus{
 #contact .coords {
   margin-top: 2rem;
 }
+
+
+     .reco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .reco-card {
+            background: var(--card, #1a1a2e);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+        .reco-card p { margin: .75rem 0 1rem; line-height: 1.6; color: var(--muted, #a0a0b0); }
+        .reco-card .reco-author { font-weight: 700; }
+        .reco-card .reco-company { font-size: .85rem; color: var(--muted2, #666); }
+        .reco-form { max-width: 560px; margin: 3rem auto 0; }
+        .reco-form .form-row { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+        .reco-form label { font-size: .9rem; font-weight: 600; }
+        .reco-form input,
+        .reco-form textarea {
+            padding: .75rem 1rem;
+            border-radius: .5rem;
+            border: 1px solid rgba(255,255,255,.15);
+            background: rgba(255,255,255,.05);
+            color: inherit;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .msg-success { color: #22c55e; margin-top: 1rem; font-weight: 600; }
+        .msg-error   { color: #ef4444; margin-top: 1rem; font-weight: 600; }

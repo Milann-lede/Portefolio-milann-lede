@@ -33,6 +33,7 @@ require './asset/php/header.php';
         <a href="./index.php" class="nav-link">Accueil</a>
         <a href="./asset/html/a-propos.php" class="nav-link">À propos de moi</a>
         <a href="./asset/html/projets.php" class="nav-link">Projets</a>
+        <a href="./asset/html/recomendation.php" class="nav-link">recomendation</a>
         <a href="./asset/html/contact.php" class="btn primary">Contact</a>
       </nav>
 

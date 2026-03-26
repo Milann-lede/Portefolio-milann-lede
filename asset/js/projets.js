@@ -70,12 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ─── Filtres par catégorie ───
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const gridPage    = document.querySelector('.projects-grid-page');
+    const githubRepos = document.getElementById('github-repos');
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            displayProjects(defaultProjects, btn.dataset.filter);
+
+            if (btn.dataset.filter === 'github') {
+                gridPage.style.display    = 'none';
+                githubRepos.style.display = 'grid';
+            } else {
+                gridPage.style.display    = '';
+                githubRepos.style.display = 'none';
+                displayProjects(defaultProjects, btn.dataset.filter);
+            }
         });
     });
 

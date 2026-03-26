@@ -47,6 +47,7 @@ $parcours = $result2->fetchAll();
         <a href="../../index.php" class="nav-link">Accueil</a>
         <a href="./a-propos.php" class="nav-link">À propos de moi</a>
         <a href="./projets.php" class="nav-link">Projets</a>
+        <a href="./recomendation.php" class="nav-link">recomendation</a>
         <a href="./contact.php" class="btn primary">Contact</a>
       </nav>
 
